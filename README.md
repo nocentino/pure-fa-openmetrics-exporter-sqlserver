@@ -15,5 +15,5 @@ This Docker Compose manifest starts up three Services, prometheus, grafana and t
     ]
     ```
 1. Change your working directory to the same as the `docker-compose.yaml` file
-1. Then use `docker-compose up` to launch the monitoring stack.
+1. Then use `docker compose up --detach` to launch the monitoring stack. 
 1. Open a browser to [http://localhost:3000](http://localhost:3000). The username is `admin` and the password is `admin!`.
