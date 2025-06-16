@@ -24,9 +24,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 8,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -39,11 +38,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -52,6 +53,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 2,
             "pointSize": 1,
@@ -74,8 +76,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "#EAB839",
@@ -92,7 +93,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 24,
         "x": 0,
         "y": 0
@@ -110,10 +111,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": true,
           "mode": "multi",
           "sort": "desc"
         }
       },
+      "pluginVersion": "12.0.0",
       "targets": [
         {
           "datasource": {
@@ -142,11 +145,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -155,7 +160,8 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
             "lineWidth": 2,
             "pointSize": 1,
             "scaleDistribution": {
@@ -172,13 +178,11 @@
             }
           },
           "mappings": [],
-          "max": 14400,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "#EAB839",
@@ -192,40 +196,15 @@
           },
           "unit": "s"
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "aen-sql-02 - 000"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 5
       },
-      "id": 15,
+      "id": 18,
       "options": {
         "legend": {
           "calcs": [
@@ -235,15 +214,15 @@
           ],
           "displayMode": "table",
           "placement": "right",
-          "showLegend": true,
-          "sortBy": "Mean",
-          "sortDesc": true
+          "showLegend": true
         },
         "tooltip": {
+          "hideZeros": true,
           "mode": "multi",
           "sort": "desc"
         }
       },
+      "pluginVersion": "12.0.0",
       "targets": [
         {
           "datasource": {
@@ -251,7 +230,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sqlserver_performance{sql_instance=~\"$sql_instance\",counter=\"Page life expectancy\",object=\"SQLServer:Buffer Node\"}",
+          "expr": "sqlserver_performance{sql_instance=~\"$sql_instance\",counter=\"Page life expectancy\",object=\"SQLServer:Buffer Node\"} ",
           "hide": false,
           "legendFormat": "{{sql_instance}} - {{exported_instance}}",
           "range": true,
@@ -272,11 +251,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "bars",
             "fillOpacity": 100,
             "gradientMode": "none",
@@ -285,6 +266,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 4,
@@ -306,8 +288,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "#EAB839",
@@ -327,7 +308,7 @@
         "h": 6,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 10
       },
       "id": 14,
       "options": {
@@ -344,10 +325,12 @@
           "sortDesc": true
         },
         "tooltip": {
+          "hideZeros": true,
           "mode": "multi",
           "sort": "desc"
         }
       },
+      "pluginVersion": "12.0.0",
       "targets": [
         {
           "datasource": {
@@ -355,7 +338,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "avg by (sql_instance,wait_type) (irate(sqlserver_waitstats_signal_wait_time_ms{sql_instance=~\"^$sql_instance\"}[15m]))",
+          "expr": "topk(20,\n  avg by (sql_instance, wait_type) (\n    irate(sqlserver_waitstats_signal_wait_time_ms{\n      sql_instance=~\"^$sql_instance\",\n      wait_type!~\"(?i)BROKER_EVENTHANDLER|BROKER_RECEIVE_WAITFOR|BROKER_TASK_STOP|BROKER_TO_FLUSH|BROKER_TRANSMITTER|CHECKPOINT_QUEUE|CHKPT|CLR_AUTO_EVENT|CLR_MANUAL_EVENT|CLR_SEMAPHORE|CXCONSUMER|DBMIRROR_DBM_EVENT|DBMIRROR_EVENTS_QUEUE|DBMIRROR_WORKER_QUEUE|DBMIRRORING_CMD|DIRTY_PAGE_POLL|DISPATCHER_QUEUE_SEMAPHORE|EXECSYNC|FSAGENT|FT_IFTS_SCHEDULER_IDLE_WAIT|FT_IFTSHC_MUTEX|HADR_CLUSAPI_CALL|HADR_FILESTREAM_IOMGR_IOCOMPLETION|HADR_LOGCAPTURE_WAIT|HADR_NOTIFICATION_DEQUEUE|HADR_TIMER_TASK|HADR_WORK_QUEUE|KSOURCE_WAKEUP|LAZYWRITER_SLEEP|LOGMGR_QUEUE|MEMORY_ALLOCATION_EXT|ONDEMAND_TASK_QUEUE|PARALLEL_REDO_DRAIN_WORKER|PARALLEL_REDO_LOG_CACHE|PARALLEL_REDO_TRAN_LIST|PARALLEL_REDO_WORKER_SYNC|PARALLEL_REDO_WORKER_WAIT_WORK|PREEMPTIVE_XE_GETTARGETSTATE|PWAIT_ALL_COMPONENTS_INITIALIZED|PWAIT_DIRECTLOGCONSUMER_GETNEXT|QDS_PERSIST_TASK_MAIN_LOOP_SLEEP|QDS_ASYNC_QUEUE|QDS_CLEANUP_STALE_QUERIES_TASK_MAIN_LOOP_SLEEP|QDS_SHUTDOWN_QUEUE|REDO_THREAD_PENDING_WORK|REQUEST_FOR_DEADLOCK_SEARCH|RESOURCE_QUEUE|SERVER_IDLE_CHECK|SLEEP_BPOOL_FLUSH|SLEEP_DBSTARTUP|SLEEP_DCOMSTARTUP|SLEEP_MASTERDBREADY|SLEEP_MASTERMDREADY|SLEEP_MASTERUPGRADED|SLEEP_MSDBSTARTUP|SLEEP_SYSTEMTASK|SLEEP_TASK|SLEEP_TEMPDBSTARTUP|SNI_HTTP_ACCEPT|SOS_WORK_DISPATCHER|SP_SERVER_DIAGNOSTICS_SLEEP|SQLTRACE_BUFFER_FLUSH|SQLTRACE_INCREMENTAL_FLUSH_SLEEP|SQLTRACE_WAIT_ENTRIES|WAIT_FOR_RESULTS|WAITFOR|WAITFOR_TASKSHUTDOWN|WAIT_XTP_RECOVERY|WAIT_XTP_HOST_WAIT|WAIT_XTP_OFFLINE_CKPT_NEW_LOG|WAIT_XTP_CKPT_CLOSE|XE_DISPATCHER_JOIN|XE_DISPATCHER_WAIT|XE_TIMER_EVENT\"\n    }[30s])\n  )\n)",
           "hide": false,
           "legendFormat": "{{sql_instance}} - {{wait_type}}",
           "range": true,
@@ -367,9 +350,9 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "avg by (sql_instance,wait_type) (irate(sqlserver_waitstats_resource_wait_time_ms{sql_instance=~\"^$sql_instance\"}[15m])) ",
+          "expr": "topk(20,\n  avg by (sql_instance, wait_type) (\n    irate(sqlserver_waitstats_resource_wait_time_ms{\n      sql_instance=~\"^$sql_instance\",\n      wait_type!~\"(?i)BROKER_EVENTHANDLER|BROKER_RECEIVE_WAITFOR|BROKER_TASK_STOP|BROKER_TO_FLUSH|BROKER_TRANSMITTER|CHECKPOINT_QUEUE|CHKPT|CLR_AUTO_EVENT|CLR_MANUAL_EVENT|CLR_SEMAPHORE|CXCONSUMER|DBMIRROR_DBM_EVENT|DBMIRROR_EVENTS_QUEUE|DBMIRROR_WORKER_QUEUE|DBMIRRORING_CMD|DIRTY_PAGE_POLL|DISPATCHER_QUEUE_SEMAPHORE|EXECSYNC|FSAGENT|FT_IFTS_SCHEDULER_IDLE_WAIT|FT_IFTSHC_MUTEX|HADR_CLUSAPI_CALL|HADR_FILESTREAM_IOMGR_IOCOMPLETION|HADR_LOGCAPTURE_WAIT|HADR_NOTIFICATION_DEQUEUE|HADR_TIMER_TASK|HADR_WORK_QUEUE|KSOURCE_WAKEUP|LAZYWRITER_SLEEP|LOGMGR_QUEUE|MEMORY_ALLOCATION_EXT|ONDEMAND_TASK_QUEUE|PARALLEL_REDO_DRAIN_WORKER|PARALLEL_REDO_LOG_CACHE|PARALLEL_REDO_TRAN_LIST|PARALLEL_REDO_WORKER_SYNC|PARALLEL_REDO_WORKER_WAIT_WORK|PREEMPTIVE_XE_GETTARGETSTATE|PWAIT_ALL_COMPONENTS_INITIALIZED|PWAIT_DIRECTLOGCONSUMER_GETNEXT|QDS_PERSIST_TASK_MAIN_LOOP_SLEEP|QDS_ASYNC_QUEUE|QDS_CLEANUP_STALE_QUERIES_TASK_MAIN_LOOP_SLEEP|QDS_SHUTDOWN_QUEUE|REDO_THREAD_PENDING_WORK|REQUEST_FOR_DEADLOCK_SEARCH|RESOURCE_QUEUE|SERVER_IDLE_CHECK|SLEEP_BPOOL_FLUSH|SLEEP_DBSTARTUP|SLEEP_DCOMSTARTUP|SLEEP_MASTERDBREADY|SLEEP_MASTERMDREADY|SLEEP_MASTERUPGRADED|SLEEP_MSDBSTARTUP|SLEEP_SYSTEMTASK|SLEEP_TASK|SLEEP_TEMPDBSTARTUP|SNI_HTTP_ACCEPT|SOS_WORK_DISPATCHER|SP_SERVER_DIAGNOSTICS_SLEEP|SQLTRACE_BUFFER_FLUSH|SQLTRACE_INCREMENTAL_FLUSH_SLEEP|SQLTRACE_WAIT_ENTRIES|WAIT_FOR_RESULTS|WAITFOR|WAITFOR_TASKSHUTDOWN|WAIT_XTP_RECOVERY|WAIT_XTP_HOST_WAIT|WAIT_XTP_OFFLINE_CKPT_NEW_LOG|WAIT_XTP_CKPT_CLOSE|XE_DISPATCHER_JOIN|XE_DISPATCHER_WAIT|XE_TIMER_EVENT\"\n    }[30s])\n  )\n)",
           "hide": false,
-          "legendFormat": "__auto",
+          "legendFormat": "{{sql_instance}} - {{wait_type}}",
           "range": true,
           "refId": "B"
         }
@@ -388,11 +371,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "bars",
             "fillOpacity": 100,
             "gradientMode": "none",
@@ -401,6 +386,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 2,
             "pointSize": 5,
@@ -422,8 +408,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -439,7 +424,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 18
+        "y": 16
       },
       "id": 4,
       "options": {
@@ -452,14 +437,16 @@
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true,
-          "sortBy": "Mean",
+          "sortBy": "Max",
           "sortDesc": true
         },
         "tooltip": {
+          "hideZeros": true,
           "mode": "multi",
           "sort": "desc"
         }
       },
+      "pluginVersion": "12.0.0",
       "targets": [
         {
           "datasource": {
@@ -468,7 +455,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(sql_instance,database_name)  (rate(sqlserver_database_io_read_bytes{sql_instance=~\"$sql_instance\"}[$__rate_interval]) ) ",
+          "expr": "sum by (sql_instance, database_name) (\n  irate(sqlserver_database_io_read_bytes{sql_instance=~\"$sql_instance\"}[30s])\n)\n",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -491,11 +478,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "bars",
             "fillOpacity": 100,
             "gradientMode": "none",
@@ -504,6 +493,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 2,
             "pointSize": 2,
@@ -525,8 +515,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -542,7 +531,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 18
+        "y": 16
       },
       "id": 5,
       "options": {
@@ -554,15 +543,15 @@
           ],
           "displayMode": "table",
           "placement": "bottom",
-          "showLegend": true,
-          "sortBy": "Max",
-          "sortDesc": true
+          "showLegend": true
         },
         "tooltip": {
+          "hideZeros": true,
           "mode": "multi",
           "sort": "desc"
         }
       },
+      "pluginVersion": "12.0.0",
       "targets": [
         {
           "datasource": {
@@ -571,7 +560,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(sql_instance,database_name)  (rate(sqlserver_database_io_write_bytes{sql_instance=~\"$sql_instance\"}[$__rate_interval]) ) ",
+          "expr": "sum by (sql_instance, database_name) (\n  irate(sqlserver_database_io_write_bytes{sql_instance=~\"$sql_instance\"}[30s])\n)\n",
           "interval": "",
           "legendFormat": "{{sql_instance}} - {{database_name}}",
           "range": true,
@@ -592,11 +581,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "bars",
             "fillOpacity": 100,
             "gradientMode": "none",
@@ -605,200 +596,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
-            "lineWidth": 2,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "normal"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "bytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 26
-      },
-      "id": 9,
-      "options": {
-        "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max"
-          ],
-          "displayMode": "table",
-          "placement": "bottom",
-          "showLegend": true,
-          "sortBy": "Mean",
-          "sortDesc": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "avg(purefa_volume_performance_bandwidth_bytes{ instance=~\"^$instance\", name=~\".+$sql_instance.+\", dimension=\"read_bytes_per_sec\"}) by (instance, name) ",
-          "legendFormat": "{{instance}} - {{name}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Volume Reads/Sec",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "bars",
-            "fillOpacity": 100,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 2,
-            "pointSize": 1,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "normal"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "bytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 26
-      },
-      "id": 10,
-      "options": {
-        "legend": {
-          "calcs": [
-            "mean",
-            "max",
-            "lastNotNull"
-          ],
-          "displayMode": "table",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "avg(purefa_volume_performance_bandwidth_bytes{ instance=~\"^$instance\", name=~\".+$sql_instance.+\", dimension=\"write_bytes_per_sec\"}) by (instance, name) ",
-          "legendFormat": "{{instance}} - {{name}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Volume Write/Sec",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "bars",
-            "fillOpacity": 100,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 2,
             "pointSize": 5,
@@ -836,7 +634,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 34
+        "y": 24
       },
       "id": 6,
       "options": {
@@ -849,14 +647,16 @@
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true,
-          "sortBy": "Last *",
-          "sortDesc": false
+          "sortBy": "Max",
+          "sortDesc": true
         },
         "tooltip": {
+          "hideZeros": true,
           "mode": "multi",
           "sort": "desc"
         }
       },
+      "pluginVersion": "12.0.0",
       "targets": [
         {
           "datasource": {
@@ -865,7 +665,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "(rate(sqlserver_database_io_read_latency_ms{sql_instance=~\"$sql_instance\"}[$__rate_interval]) )  / \n(rate(sqlserver_database_io_reads{sql_instance=~\"$sql_instance\"}[$__rate_interval])  ) ",
+          "expr": "sum by (sql_instance, database_name, logicalname, physical_filename) (\n  irate(sqlserver_database_io_read_latency_ms[30s])\n)\n/\nclamp_min(\n  sum by (sql_instance, database_name, logicalname, physical_filename) (\n    irate(sqlserver_database_io_reads[30s])\n  ),\n  1\n)\n",
           "instant": false,
           "interval": "",
           "legendFormat": "{{sql_instance}} - {{database_name}} - {{physical_filename}} ",
@@ -887,11 +687,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "bars",
             "fillOpacity": 100,
             "gradientMode": "none",
@@ -900,6 +702,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 2,
             "pointSize": 5,
@@ -937,7 +740,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 34
+        "y": 24
       },
       "id": 7,
       "options": {
@@ -954,10 +757,12 @@
           "sortDesc": true
         },
         "tooltip": {
+          "hideZeros": true,
           "mode": "multi",
           "sort": "desc"
         }
       },
+      "pluginVersion": "12.0.0",
       "targets": [
         {
           "datasource": {
@@ -966,9 +771,9 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "(irate(sqlserver_database_io_write_latency_ms{sql_instance=~\"$sql_instance\"}[$__rate_interval]) )  / \n(irate(sqlserver_database_io_writes{sql_instance=~\"$sql_instance\"}[$__rate_interval])  ) \n\n",
+          "expr": "sum by (sql_instance, database_name, logicalname, physical_filename) (\n  irate(sqlserver_database_io_write_latency_ms[30s])\n)\n/\nclamp_min(\n  sum by (sql_instance, database_name, logicalname, physical_filename) (\n    irate(sqlserver_database_io_writes[30s])\n  ),\n  1\n)\n",
           "interval": "",
-          "legendFormat": "{{sql_instance}} - {{database_name}}",
+          "legendFormat": "{{sql_instance}} - {{database_name}} - {{physical_filename}} ",
           "range": true,
           "refId": "A"
         }
@@ -987,11 +792,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "bars",
             "fillOpacity": 100,
             "gradientMode": "none",
@@ -1000,6 +807,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineStyle": {
               "fill": "solid"
@@ -1040,7 +848,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 42
+        "y": 32
       },
       "id": 12,
       "options": {
@@ -1053,14 +861,16 @@
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true,
-          "sortBy": "Max",
+          "sortBy": "Last *",
           "sortDesc": true
         },
         "tooltip": {
+          "hideZeros": true,
           "mode": "multi",
           "sort": "desc"
         }
       },
+      "pluginVersion": "12.0.0",
       "targets": [
         {
           "datasource": {
@@ -1068,7 +878,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(purefa_volume_performance_latency_usec{instance=~\"$instance\", name=~\".+$sql_instance.+\",dimension=~\"queue_usec_per_read_op|san_usec_per_read_op|service_usec_per_read_op\"} ) by (instance,name)\n\n",
+          "expr": "sum by (instance, name) (\n  irate(\n    purefa_volume_performance_latency_usec{\n      instance=~\"$instance\",\n      name=~\".+$sql_instance.+\",\n      dimension=~\"qos_rate_limit_usec_per_read_op|queue_usec_per_read_op|san_usec_per_read_op|service_usec_per_read_op|service_usec_per_read_op_cache_reduction|usec_per_read_op\"\n    }[30s]\n  )\n)\n",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -1088,11 +898,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "bars",
             "fillOpacity": 100,
             "gradientMode": "none",
@@ -1101,6 +913,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 2,
             "pointSize": 1,
@@ -1138,7 +951,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 42
+        "y": 32
       },
       "id": 13,
       "options": {
@@ -1155,10 +968,12 @@
           "sortDesc": true
         },
         "tooltip": {
+          "hideZeros": true,
           "mode": "multi",
           "sort": "desc"
         }
       },
+      "pluginVersion": "12.0.0",
       "targets": [
         {
           "datasource": {
@@ -1166,7 +981,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(purefa_volume_performance_latency_usec{instance=~\"$instance\", name=~\".+$sql_instance.+\",dimension=~\"queue_usec_per_write_op|san_usec_per_write_op|service_usec_per_write_op\"} ) by (instance,name)",
+          "expr": "sum by (instance, name) (\n  irate(\n    purefa_volume_performance_latency_usec{\n      instance=~\"$instance\",\n      name=~\".+$sql_instance.+\",\n      dimension=~\"qos_rate_limit_usec_per_write_op|queue_usec_per_write_op|san_usec_per_write_op|service_usec_per_write_op|usec_per_write_op\"\n    }[30s]\n  )\n)\n",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -1174,34 +989,445 @@
       ],
       "title": "FlashArray Write Latency (μs)",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 40
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": true,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "avg(purefa_volume_performance_bandwidth_bytes{ instance=~\"^$instance\", name=~\".+$sql_instance.+\", dimension=\"read_bytes_per_sec\"}) by (instance, name) ",
+          "legendFormat": "{{instance}} - {{name}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "FlashArray Volume Reads/Sec",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 40
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": true,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "avg(purefa_volume_performance_bandwidth_bytes{ instance=~\"^$instance\", name=~\".+$sql_instance.+\", dimension=\"write_bytes_per_sec\"}) by (instance, name) ",
+          "legendFormat": "{{instance}} - {{name}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "FlashArray Volume Write/Sec",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 48
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": true,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "(\n  avg by (instance, name) (\n    avg_over_time(purefa_volume_performance_bandwidth_bytes{\n      instance=~\".*\",\n      name=~\".+$sql_instance.+\",\n      dimension=\"read_bytes_per_sec\"\n    }[30s])\n  )\n)\n/\nclamp_min(\n  (\n    avg by (instance, name) (\n      avg_over_time(purefa_volume_performance_throughput_iops{\n        instance=~\".*\",\n        name=~\".+$sql_instance.+\",\n        dimension=\"reads_per_sec\"\n      }[30s])\n    )\n  ),\n  1\n)\n",
+          "legendFormat": "{{instance}} - {{name}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "FlashArray Read Average IO Size (KB)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 48
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": true,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "(\n  avg by (instance, name) (\n    avg_over_time(purefa_volume_performance_bandwidth_bytes{\n      instance=~\".*\",\n      name=~\".+$sql_instance.+\",\n      dimension=\"write_bytes_per_sec\"\n    }[30s])\n  )\n)\n/\nclamp_min(\n  (\n    avg by (instance, name) (\n      avg_over_time(purefa_volume_performance_throughput_iops{\n        instance=~\".*\",\n        name=~\".+$sql_instance.+\",\n        dimension=\"writes_per_sec\"\n      }[30s])\n    )\n  ),\n  1\n)\n",
+          "legendFormat": "{{instance}} - {{name}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "FlashArray Write Average IO Size (KB)",
+      "type": "timeseries"
     }
   ],
-  "refresh": false,
-  "schemaVersion": 37,
-  "style": "dark",
+  "preload": false,
+  "refresh": "10s",
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "selected": false,
           "text": "Prometheus",
-          "value": "Prometheus"
+          "value": "PBFA97CFB590B2093"
         },
-        "hide": 0,
         "includeAll": false,
-        "multi": false,
         "name": "datasource",
         "options": [],
         "query": "prometheus",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "type": "datasource"
       },
       {
         "current": {
-          "selected": false,
           "text": "All",
           "value": "$__all"
         },
@@ -1210,7 +1436,6 @@
           "uid": "${datasource}"
         },
         "definition": "query_result(sqlserver_server_properties_cpu_count{sql_instance=~\".+\"})",
-        "hide": 0,
         "includeAll": true,
         "label": "SQL Instance",
         "multi": true,
@@ -1222,13 +1447,11 @@
         },
         "refresh": 1,
         "regex": ".*sql_instance=\"(.*?)\".*",
-        "skipUrlSync": false,
         "sort": 1,
         "type": "query"
       },
       {
         "current": {
-          "selected": true,
           "text": [
             "All"
           ],
@@ -1241,7 +1464,6 @@
           "uid": "${datasource}"
         },
         "definition": "query_result(purefa_info{instance=~\".+\"})",
-        "hide": 0,
         "includeAll": true,
         "label": "FlashArray",
         "multi": true,
@@ -1253,20 +1475,18 @@
         },
         "refresh": 1,
         "regex": ".*instance=\"(.*?)\".*",
-        "skipUrlSync": false,
         "sort": 1,
         "type": "query"
       }
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "SQL Server and FlashArray",
   "uid": "3MpPHQhVz",
-  "version": 1,
-  "weekStart": ""
+  "version": 32
 }
