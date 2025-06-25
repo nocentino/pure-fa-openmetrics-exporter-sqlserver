@@ -50,14 +50,13 @@ services:
       - 3000:3000
     volumes:
       - grafana-data:/var/lib/grafana
-      - ../../../../../extra/grafana/images:/etc/grafana/provisioning/dashboards/images
     configs:
       - source: dashboard_config
         target: /etc/grafana/provisioning/dashboards/default.yaml
       - source: datasource_config
         target: /etc/grafana/provisioning/datasources/datasource.yaml
       - source: dashboards_examples
-        target: /etc/grafana/provisioning/dashboards/json/grafana-purefa-flasharray-overview.json
+        target: /etc/grafana/provisioning/dashboards/json/SQL-Server-and-FlashArray.json
     restart: unless-stopped
 configs:
   dashboard_config:
@@ -65,7 +64,8 @@ configs:
   datasource_config:
     file: ./grafana/datasources/datasource.yaml
   dashboards_examples:
-    file: ../../../extra/grafana/grafana-purefa-flasharray-overview.json
+    file: ./grafana/dashboards/json/SQL-Server-and-FlashArray.json
+
 volumes:
   prometheus-data:
   grafana-data:
