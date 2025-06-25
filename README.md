@@ -55,6 +55,14 @@ git clone https://github.com/yourusername/pure-fa-openmetrics-exporter-sqlserver
 cd pure-fa-openmetrics-exporter-sqlserver
 ```
 
+### 2. Volume to SQL Server Instance Correlation
+
+The dashboards automatically correlate FlashArray volumes with SQL Server instances through pattern matching. This works by:
+- Looking for SQL Server instance names within the volume names on the FlashArray
+- Matching metrics from both systems when a pattern match is found
+
+For data correlation between FlashArray volumes and SQL Server instances, incorporate the SQL Server instance name within your volume naming convention (e.g., "vol-SQLSERVER01-data" for a SQL Server instance named "SQLSERVER01"). You can identify your specific instance name by executing a query with the [@@SERVERNAME](https://learn.microsoft.com/en-us/sql/t-sql/functions/servername-transact-sql?view=sql-server-ver17) variable in SQL Server Management Studio. This consistent naming strategy allows the dashboard to automatically establish connections between storage performance metrics and their corresponding SQL Server instances, providing comprehensive end-to-end visibility of your database workloads.
+
 ### 2. Configure Pure Storage FlashArray access:
 
 1. Create an API token for your FlashArray:
@@ -63,11 +71,6 @@ cd pure-fa-openmetrics-exporter-sqlserver
    - Create or Select a user with read only privileges for monitoring.
    - Generate an API token for this user
    - Copy the API token for configuration
-
-2. Edit the Prometheus configuration file:
-   ```bash
-   nano prometheus/prometheus.yml
-   ```
 
 3. Add your FlashArray information to the config file. Examples provided in: [prometheus.yaml](prometheus/prometheus.yml)
 
@@ -82,7 +85,8 @@ cd pure-fa-openmetrics-exporter-sqlserver
    ```
    [[inputs.sqlserver]]
      servers = [
-       "Server=sqlserver1.example.com;Port=1433;User Id=monitoring_user;Password=your_password;app name=telegraf",
+        "Server=aen-sql-25-a.fsa.lab;Port=1433;User Id=telegraf;Password=S0methingS@Str0ng!;app name=Telegraf;",
+        "Server=aen-sql-25-b.fsa.lab;Port=1433;User Id=telegraf;Password=S0methingS@Str0ng!;app name=Telegraf;"
        # Add additional servers as needed
      ]
    ```
@@ -101,7 +105,7 @@ docker-compose up -d
 
 - Open your browser and navigate to `http://localhost:3000`
 - Login with username `admin` and password `admin!` (change this in production)
-- Navigate to the "SQL Server and FlashArray" dashboard
+- Navigate to the "SQL Server and FlashArray" dashboard in the dashboards menu.
 
 ## Dashboard Features
 
@@ -114,15 +118,6 @@ The pre-configured dashboard includes:
 - FlashArray read and write latency in microseconds
 - FlashArray volume throughput metrics
 - FlashArray I/O size analysis
-
-### Volume to SQL Server Instance Correlation
-
-The dashboard automatically correlates FlashArray volumes with SQL Server instances through pattern matching. This works by:
-- Looking for SQL Server instance names within the volume names on the FlashArray
-- Matching metrics from both systems when a pattern match is found
-- Showing correlated performance metrics side-by-side
-
-For optimal results, name your FlashArray volumes with the SQL Server instance name embedded in them (e.g., "vol-SQLSERVER01-data" for a SQL Server instance named "SQLSERVER01"). This naming convention enables the dashboard to automatically correlate storage metrics with the correct SQL Server instance.
 
 ## Customization
 
@@ -147,7 +142,6 @@ You can customize this solution by:
 
 3. **Missing metrics in dashboard**:
    - Check Prometheus targets at http://localhost:9090/targets
-   - Verify that all exporters are in "UP" state
    - Examine the logs: `docker-compose logs telegraf`
 
 ### Getting Support
