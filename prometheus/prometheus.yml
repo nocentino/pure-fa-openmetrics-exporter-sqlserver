@@ -7,11 +7,13 @@ scrape_configs:
     static_configs:
     - targets:
       - "telegraf:9273"
-      
-  - job_name: 'purestorage-fa'
+
+# Prometheus configuration for Pure Storage FlashArray1
+
+  - job_name: 'purestorage-fa1'
     metrics_path: /metrics/array
     authorization:
-      credentials: b3e016eb-7e13-ba0b-2e1a-bd9aa4a4a6f9
+      credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
     params:
       endpoint: [sn1-x90r2-f06-33.puretec.purestorage.com]
     static_configs:
@@ -23,10 +25,10 @@ scrape_configs:
         instance: FlashArray1
         env: 'Test Lab'
 
-  - job_name: 'purestorage-fa_volumes'
+  - job_name: 'purestorage-fa1_volumes'
     metrics_path: /metrics/volumes
     authorization:
-      credentials: b3e016eb-7e13-ba0b-2e1a-bd9aa4a4a6f9
+      credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
     params:
       endpoint: [sn1-x90r2-f06-33.puretec.purestorage.com]
 
@@ -39,42 +41,10 @@ scrape_configs:
         instance: FlashArray1
         env: 'Test Lab'
 
-  - job_name: 'purestorage-fa_hosts'
+  - job_name: 'purestorage-fa1_hosts'
     metrics_path: /metrics/hosts
     authorization:
-      credentials: b3e016eb-7e13-ba0b-2e1a-bd9aa4a4a6f9
-    params:
-      endpoint: [sn1-x90r2-f06-33.puretec.purestorage.com]
-
-    static_configs:
-    - targets:
-      - pure-fa-om-exporter:9490
-      labels:
-        location: US
-        site: TestSite
-        instance: FlashArray1
-        env: 'Test Lab'
-        
-  - job_name: 'purestorage-fa_pods'
-    metrics_path: /metrics/pods
-    authorization:
-      credentials: b3e016eb-7e13-ba0b-2e1a-bd9aa4a4a6f9
-    params:
-      endpoint: [sn1-x90r2-f06-33.puretec.purestorage.com]
-
-    static_configs:
-    - targets:
-      - pure-fa-om-exporter:9490
-      labels:
-        location: US
-        site: TestSite
-        instance: FlashArray1
-        env: 'Test Lab'
- 
-  - job_name: 'purestorage-fa_directories'
-    metrics_path: /metrics/directories
-    authorization:
-      credentials: b3e016eb-7e13-ba0b-2e1a-bd9aa4a4a6f9
+      credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
     params:
       endpoint: [sn1-x90r2-f06-33.puretec.purestorage.com]
 
@@ -87,11 +57,11 @@ scrape_configs:
         instance: FlashArray1
         env: 'Test Lab'
 
-
+# For FlashArray2
   - job_name: 'purestorage-fa2'
     metrics_path: /metrics/array
     authorization:
-      credentials: 539053c9-f65e-2a42-82c8-f51e4c66598d
+      credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
     params:
       endpoint: [sn1-x90r2-f07-27.puretec.purestorage.com]
 
@@ -107,7 +77,7 @@ scrape_configs:
   - job_name: 'purestorage-fa2_volumes'
     metrics_path: /metrics/volumes
     authorization:
-      credentials: 539053c9-f65e-2a42-82c8-f51e4c66598d
+      credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
     params:
       endpoint: [sn1-x90r2-f07-27.puretec.purestorage.com]
 
@@ -123,7 +93,7 @@ scrape_configs:
   - job_name: 'purestorage-fa2_hosts'
     metrics_path: /metrics/hosts
     authorization:
-      credentials: 539053c9-f65e-2a42-82c8-f51e4c66598d
+      credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
     params:
       endpoint: [sn1-x90r2-f07-27.puretec.purestorage.com]
 
@@ -135,13 +105,14 @@ scrape_configs:
         site: TestSite
         instance: FlashArray2
         env: 'Test Lab'
-        
-  - job_name: 'purestorage-fa2_pods'
-    metrics_path: /metrics/pods
+
+# For FlashArray3
+  - job_name: 'purestorage-fa3'
+    metrics_path: /metrics/array
     authorization:
-      credentials: 539053c9-f65e-2a42-82c8-f51e4c66598d
+      credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
     params:
-      endpoint: [sn1-x90r2-f07-27.puretec.purestorage.com]
+      endpoint: [sn1-x90r2-f06-27.puretec.purestorage.com]
 
     static_configs:
     - targets:
@@ -149,15 +120,15 @@ scrape_configs:
       labels:
         location: US
         site: TestSite
-        instance: FlashArray2
+        instance: FlashArray3
         env: 'Test Lab'
- 
-  - job_name: 'purestorage-fa2_directories'
-    metrics_path: /metrics/directories
+
+  - job_name: 'purestorage-fa3_volumes'
+    metrics_path: /metrics/volumes
     authorization:
-      credentials: 539053c9-f65e-2a42-82c8-f51e4c66598d
+      credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
     params:
-      endpoint: [sn1-x90r2-f07-27.puretec.purestorage.com]
+      endpoint: [sn1-x90r2-f06-27.puretec.purestorage.com]
 
     static_configs:
     - targets:
@@ -165,9 +136,28 @@ scrape_configs:
       labels:
         location: US
         site: TestSite
-        instance: FlashArray2
+        instance: FlashArray3
         env: 'Test Lab'
 
+  - job_name: 'purestorage-fa3_hosts'
+    metrics_path: /metrics/hosts
+    authorization:
+      credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
+    params:
+      endpoint: [sn1-x90r2-f06-27.puretec.purestorage.com]
+
+    static_configs:
+    - targets:
+      - pure-fa-om-exporter:9490
+      labels:
+        location: US
+        site: TestSite
+        instance: FlashArray3
+        env: 'Test Lab'
+
+
+
+# Prometheus configuration for Pure Storage FlashBlade
 
   - job_name: 'purestorage-fb'
     metrics_path: /metrics/array
