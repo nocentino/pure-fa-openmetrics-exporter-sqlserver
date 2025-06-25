@@ -24,6 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 11,
   "links": [],
   "panels": [
     {
@@ -879,7 +880,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (instance, name) (\n  irate(\n    purefa_volume_performance_latency_usec{\n      instance=~\"$instance\",\n      name=~\".+$sql_instance.+\",\n      dimension=~\"qos_rate_limit_usec_per_read_op|queue_usec_per_read_op|san_usec_per_read_op|service_usec_per_read_op|service_usec_per_read_op_cache_reduction|usec_per_read_op\"\n    }[30s]\n  )\n)\n",
+          "expr": "sum by (instance, name) (\n    purefa_volume_performance_latency_usec{\n      instance=~\"$instance\",\n      name=~\".+$sql_instance.+\",\n      dimension=~\"qos_rate_limit_usec_per_read_op|queue_usec_per_read_op|san_usec_per_read_op|service_usec_per_read_op|usec_per_read_op\"\n  }\n)\n",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -982,7 +983,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (instance, name) (\n  irate(\n    purefa_volume_performance_latency_usec{\n      instance=~\"$instance\",\n      name=~\".+$sql_instance.+\",\n      dimension=~\"qos_rate_limit_usec_per_write_op|queue_usec_per_write_op|san_usec_per_write_op|service_usec_per_write_op|usec_per_write_op\"\n    }[30s]\n  )\n)\n",
+          "expr": "sum by (instance, name) (\n    purefa_volume_performance_latency_usec{\n      instance=~\"$instance\",\n      name=~\".+$sql_instance.+\",\n      dimension=~\"qos_rate_limit_usec_per_write_op|queue_usec_per_write_op|san_usec_per_write_op|service_usec_per_write_op|usec_per_write_op\"\n  }\n)\n",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -1259,7 +1260,7 @@
               }
             ]
           },
-          "unit": "µs"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -1411,22 +1412,6 @@
       ],
       "title": "FlashArray Write Average IO Size (KB)",
       "type": "timeseries"
-    },
-    {
-      "gridPos": {
-        "h": 3,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 100,
-      "options": {
-        "content": "# SQL Server and FlashArray Performance Dashboard\n\nThis dashboard correlates SQL Server performance metrics with storage metrics from Pure Storage FlashArray. The correlation works by matching SQL Server instance names within FlashArray volume names.\n\n**For optimal results:** Name your FlashArray volumes with the SQL Server instance name embedded (e.g., \"vol-SQLSERVER01-data\" for a SQL Server instance named \"SQLSERVER01\").\n\nUse the variables at the top to filter by SQL Server instance and FlashArray.",
-        "mode": "markdown"
-      },
-      "pluginVersion": "10.0.0",
-      "title": "Dashboard Information",
-      "type": "text"
     }
   ],
   "preload": false,
@@ -1437,9 +1422,8 @@
     "list": [
       {
         "current": {
-          "selected": true,
           "text": "Prometheus",
-          "value": "Prometheus"
+          "value": "PBFA97CFB590B2093"
         },
         "includeAll": false,
         "name": "datasource",
@@ -1451,9 +1435,7 @@
       },
       {
         "current": {
-          "text": [
-            "All"
-          ],
+          "text": "All",
           "value": [
             "$__all"
           ]
@@ -1463,7 +1445,6 @@
           "uid": "${datasource}"
         },
         "definition": "label_values(sqlserver_server_properties_cpu_count, sql_instance)",
-        "hide": 0,
         "includeAll": true,
         "label": "SQL Instance",
         "multi": true,
@@ -1475,7 +1456,6 @@
         },
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
         "type": "query"
       },
@@ -1510,12 +1490,12 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
-  "title": "SQL Server and FlashArray",
-  "uid": "3MpPHQhVz",
-  "version": 35
+  "title": "SQL Server and FlashArray test",
+  "uid": "3MpPHQhVza",
+  "version": 3
 }
