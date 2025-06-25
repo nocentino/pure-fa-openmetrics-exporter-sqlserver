@@ -72,15 +72,12 @@ For data correlation between FlashArray volumes and SQL Server instances, incorp
    - Generate an API token for this user
    - Copy the API token for configuration
 
-3. Add your FlashArray information to the config file. Examples provided in: [prometheus.yaml](prometheus/prometheus.yml)
+3. Add your FlashArray information to the config file. Examples provided in: [prometheus/prometheus.yml](prometheus/prometheus.yml)
 
 ### 3. Configure SQL Server monitoring:
 
-1. Edit the Telegraf configuration file:
-   ```bash
-   nano telegraf/telegraf.conf
-   ```
-
+1. Edit the Telegraf configuration file: [telegraf/telegraf.conf](telegraf/telegraf.conf)
+ 
 2. Update the SQL Server connection details:
    ```
    [[inputs.sqlserver]]
