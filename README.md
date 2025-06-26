@@ -93,7 +93,7 @@ cd pure-fa-openmetrics-exporter-sqlserver
 ### 4. Start the monitoring stack:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ### 5. Access Grafana:
@@ -144,9 +144,9 @@ You can customize this solution by:
 For more detailed troubleshooting information, check the logs for the specific component:
 
 ```bash
-docker-compose logs pure-fa-om-exporter
-docker-compose logs telegraf
-docker-compose logs prometheus
+docker compose logs pure-fa-om-exporter
+docker compose logs telegraf
+docker compose logs prometheus
 ```
 
 ## License
