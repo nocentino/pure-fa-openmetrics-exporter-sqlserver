@@ -26,8 +26,6 @@ pure-fa-openmetrics-exporter-sqlserver/
 │   └── dashboards/            # Grafana dashboard definitions
 │       ├── default.yaml       # Dashboard provisioning config
 │       └── json/              # JSON dashboard definitions
-├── config/                    # Pure FA exporter configuration 
-│   └── pure-fa-om.yaml        # Pure FA array connection details
 └── README.md                  # This file
 ```
 
