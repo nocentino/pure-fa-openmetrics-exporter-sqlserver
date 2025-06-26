@@ -15,7 +15,7 @@ scrape_configs:
     authorization:
       credentials: API_KEY_HERE
     params:
-      endpoint: [sn1-x90r2-f06-33.pure.fsa.lab]
+      endpoint: [flasharray1.pure.fsa.lab]
     static_configs:
     - targets:
       - pure-fa-om-exporter:9490
@@ -30,7 +30,7 @@ scrape_configs:
     authorization:
       credentials: API_KEY_HERE
     params:
-      endpoint: [sn1-x90r2-f06-33.pure.fsa.lab]
+      endpoint: [flasharray1.pure.fsa.lab]
 
     static_configs:
     - targets:
@@ -46,7 +46,7 @@ scrape_configs:
     authorization:
       credentials: API_KEY_HERE
     params:
-      endpoint: [sn1-x90r2-f06-33.pure.fsa.lab]
+      endpoint: [flasharray1.pure.fsa.lab]
 
     static_configs:
     - targets:
@@ -63,7 +63,7 @@ scrape_configs:
     authorization:
       credentials: API_KEY_HERE
     params:
-      endpoint: [sn1-x90r2-f07-27.pure.fsa.lab]
+      endpoint: [flasharray2.pure.fsa.lab]
 
     static_configs:
     - targets:
@@ -79,7 +79,7 @@ scrape_configs:
     authorization:
       credentials: API_KEY_HERE
     params:
-      endpoint: [sn1-x90r2-f07-27.pure.fsa.lab]
+      endpoint: [flasharray2.pure.fsa.lab]
 
     static_configs:
     - targets:
@@ -95,7 +95,7 @@ scrape_configs:
     authorization:
       credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
     params:
-      endpoint: [sn1-x90r2-f07-27.pure.fsa.lab]
+      endpoint: [flasharray2.pure.fsa.lab]
 
     static_configs:
     - targets:
@@ -112,7 +112,7 @@ scrape_configs:
     authorization:
       credentials: API_KEY_HERE
     params:
-      endpoint: [sn1-x90r2-f06-27.pure.fsa.lab]
+      endpoint: [flasharray3.pure.fsa.lab]
 
     static_configs:
     - targets:
@@ -128,7 +128,7 @@ scrape_configs:
     authorization:
       credentials: API_KEY_HERE
     params:
-      endpoint: [sn1-x90r2-f06-27.pure.fsa.lab]
+      endpoint: [flasharray3.pure.fsa.lab]
 
     static_configs:
     - targets:
@@ -144,7 +144,7 @@ scrape_configs:
     authorization:
       credentials: API_KEY_HERE
     params:
-      endpoint: [sn1-x90r2-f06-27.pure.fsa.lab]
+      endpoint: [flasharray3.pure.fsa.lab]
 
     static_configs:
     - targets:
@@ -164,7 +164,7 @@ scrape_configs:
     authorization:
       credentials: API_KEY_HERE
     params:
-      endpoint: [sn1-s200-c09-33.pure.fsa.lab]
+      endpoint: [flashblade1.pure.fsa.lab]
     static_configs:
     - targets:
       - pure-fb-om-exporter:9491
