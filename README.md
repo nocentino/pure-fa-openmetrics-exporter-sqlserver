@@ -32,7 +32,7 @@ pure-fa-openmetrics-exporter-sqlserver/
 ## Components
 
 - **Pure FA OpenMetrics Exporter**: Collects metrics from Pure Storage FlashArray
-- **Pure FB OpenMetrics Exporter**: Collects metrics from Pure Storage FlashBlade (optional)
+- **Pure FB OpenMetrics Exporter**: Collects metrics from Pure Storage FlashBlade
 - **Telegraf**: Collects SQL Server metrics using the SQL Server input plugin
 - **Prometheus**: Time-series database that stores all the collected metrics
 - **Grafana**: Visualization platform with pre-configured dashboards
@@ -87,7 +87,7 @@ cd pure-fa-openmetrics-exporter-sqlserver
    ```
 
 3. Ensure the SQL Server user has appropriate permissions:
-   - The user needs VIEW SERVER STATE and VIEW ANY DEFINITION permissions
+   - The user needs `VIEW SERVER STATE` and `VIEW ANY DEFINITION` permissions
    - For optimal monitoring, consider using a user with sysadmin role
 
 ### 4. Start the monitoring stack:
@@ -100,7 +100,7 @@ docker compose up -d
 
 - Open your browser and navigate to `http://localhost:3000`
 - Login with username `admin` and password `admin!` (change this in production)
-- Navigate to the "SQL Server and FlashArray" dashboard in the dashboards menu.
+- Navigate to the **"SQL Server and FlashArray"** dashboard in the **Dashboards** menu.
 
 ## Dashboard Features
 
@@ -131,13 +131,13 @@ You can customize this solution by:
    - Ensure the FlashArray address is correct in the configuration
 
 2. **SQL Server metrics not showing**:
-   - Verify SQL Server credentials in telegraf.conf
+   - Verify SQL Server credentials in [telegraf/telegraf.conf](telegraf/telegraf.conf)
    - Check that SQL Server is accessible from Docker host
    - Ensure the SQL user has appropriate permissions
 
 3. **Missing metrics in dashboard**:
    - Check Prometheus targets at http://localhost:9090/targets
-   - Examine the logs: `docker-compose logs telegraf`
+   - Examine the logs: `docker compose logs telegraf`
 
 ### Getting Support
 
