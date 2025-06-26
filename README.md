@@ -44,22 +44,22 @@ pure-fa-openmetrics-exporter-sqlserver/
 - SQL Server instance(s) (SQL Server 2016 or newer recommended)
 - A user with appropriate permissions for SQL Server monitoring
 
-## Getting Started
-
-### 1. Clone this repository:
-
-```bash
-git clone https://github.com/yourusername/pure-fa-openmetrics-exporter-sqlserver.git
-cd pure-fa-openmetrics-exporter-sqlserver
-```
-
-### 2. Volume to SQL Server Instance Correlation
+## Volume to SQL Server Instance Correlation
 
 The dashboards automatically correlate FlashArray volumes with SQL Server instances through pattern matching. This works by:
 - Looking for SQL Server instance names within the volume names on the FlashArray
 - Matching metrics from both systems when a pattern match is found
 
 For data correlation between FlashArray volumes and SQL Server instances, incorporate the SQL Server instance name within your volume naming convention (e.g., "vol-SQLSERVER01-data" for a SQL Server instance named "SQLSERVER01"). You can identify your specific instance name by executing a query with the [@@SERVERNAME](https://learn.microsoft.com/en-us/sql/t-sql/functions/servername-transact-sql?view=sql-server-ver17) variable in SQL Server Management Studio. This consistent naming strategy allows the dashboard to automatically establish connections between storage performance metrics and their corresponding SQL Server instances, providing comprehensive end-to-end visibility of your database workloads.
+
+## Getting Started
+
+### 1. Clone this repository:
+
+```bash
+git clone https://github.com/nocentino/pure-fa-openmetrics-exporter-sqlserver.git
+cd pure-fa-openmetrics-exporter-sqlserver
+```
 
 ### 2. Configure Pure Storage FlashArray access:
 
