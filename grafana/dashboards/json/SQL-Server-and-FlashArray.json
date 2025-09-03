@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 11,
+  "id": 5,
   "links": [],
   "panels": [
     {
@@ -880,7 +880,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (instance, name) (\n    purefa_volume_performance_latency_usec{\n      instance=~\"$instance\",\n      name=~\".+$sql_instance.+\",\n      dimension=~\"qos_rate_limit_usec_per_read_op|queue_usec_per_read_op|san_usec_per_read_op|service_usec_per_read_op|usec_per_read_op\"\n  }\n)\n",
+          "expr": "sum by (instance, name) (\n    purefa_volume_performance_latency_usec{\n      instance=~\"${instance:regex}\",\n      name=~\".*${sql_instance:regex}.*\",\n      dimension=~\"qos_rate_limit_usec_per_read_op|queue_usec_per_read_op|san_usec_per_read_op|service_usec_per_read_op|usec_per_read_op\"\n  }\n)\n",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -983,7 +983,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (instance, name) (\n    purefa_volume_performance_latency_usec{\n      instance=~\"$instance\",\n      name=~\".+$sql_instance.+\",\n      dimension=~\"qos_rate_limit_usec_per_write_op|queue_usec_per_write_op|san_usec_per_write_op|service_usec_per_write_op|usec_per_write_op\"\n  }\n)\n",
+          "expr": "sum by (instance, name) (\n    purefa_volume_performance_latency_usec{\n      instance=~\"${instance:regex}\",\n      name=~\".*${sql_instance:regex}.*\",\n      dimension=~\"qos_rate_limit_usec_per_write_op|queue_usec_per_write_op|san_usec_per_write_op|service_usec_per_write_op|usec_per_write_op\"\n  }\n)\n",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -1089,7 +1089,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "avg(purefa_volume_performance_bandwidth_bytes{ instance=~\"^$instance\", name=~\".+$sql_instance.+\", dimension=\"read_bytes_per_sec\"}) by (instance, name) ",
+          "expr": "avg(purefa_volume_performance_bandwidth_bytes{\n      instance=~\"${instance:regex}\",\n      name=~\".*${sql_instance:regex}.*\", \n      dimension=\"read_bytes_per_sec\"}) by (instance, name) ",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -1192,7 +1192,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "avg(purefa_volume_performance_bandwidth_bytes{ instance=~\"^$instance\", name=~\".+$sql_instance.+\", dimension=\"write_bytes_per_sec\"}) by (instance, name) ",
+          "expr": "avg(purefa_volume_performance_bandwidth_bytes{\n      instance=~\"${instance:regex}\",\n      name=~\".*${sql_instance:regex}.*\", \n      dimension=\"write_bytes_per_sec\"}) by (instance, name) ",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -1298,7 +1298,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(\n  avg by (instance, name) (\n    avg_over_time(purefa_volume_performance_bandwidth_bytes{\n      instance=~\"^$instance\",\n      name=~\".+$sql_instance.+\",\n      dimension=\"read_bytes_per_sec\"\n    }[30s])\n  )\n)\n/\nclamp_min(\n  (\n    avg by (instance, name) (\n      avg_over_time(purefa_volume_performance_throughput_iops{\n        instance=~\"^$instance\",\n        name=~\".+$sql_instance.+\",\n        dimension=\"reads_per_sec\"\n      }[30s])\n    )\n  ),\n  1\n)\n",
+          "expr": "(\n  avg by (instance, name) (\n    avg_over_time(purefa_volume_performance_bandwidth_bytes{\n      instance=~\"${instance:regex}\",\n      name=~\".*${sql_instance:regex}.*\",\n      dimension=\"read_bytes_per_sec\"\n    }[30s])\n  )\n)\n/\nclamp_min(\n  (\n    avg by (instance, name) (\n      avg_over_time(purefa_volume_performance_throughput_iops{\n        instance=~\"${instance:regex}\",\n        name=~\".*${sql_instance:regex}.*\",\n        dimension=\"reads_per_sec\"\n      }[30s])\n    )\n  ),\n  1\n)\n",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -1404,7 +1404,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(\n  avg by (instance, name) (\n    avg_over_time(purefa_volume_performance_bandwidth_bytes{\n      instance=~\"^$instance\",\n      name=~\".+$sql_instance.+\",\n      dimension=\"write_bytes_per_sec\"\n    }[30s])\n  )\n)\n/\nclamp_min(\n  (\n    avg by (instance, name) (\n      avg_over_time(purefa_volume_performance_throughput_iops{\n        instance=~\"^$instance\",\n        name=~\".+$sql_instance.+\",\n        dimension=\"writes_per_sec\"\n      }[30s])\n    )\n  ),\n  1\n)\n",
+          "expr": "(\n  avg by (instance, name) (\n    avg_over_time(purefa_volume_performance_bandwidth_bytes{\n      instance=~\"${instance:regex}\",\n      name=~\".*${sql_instance:regex}.*\",\n      dimension=\"write_bytes_per_sec\"\n    }[30s])\n  )\n)\n/\nclamp_min(\n  (\n    avg by (instance, name) (\n      avg_over_time(purefa_volume_performance_throughput_iops{\n      instance=~\"${instance:regex}\",\n      name=~\".*${sql_instance:regex}.*\",\n      dimension=\"writes_per_sec\"\n      }[30s])\n    )\n  ),\n  1\n)\n",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -1415,7 +1415,7 @@
     }
   ],
   "preload": false,
-  "refresh": false,
+  "refresh": "30s",
   "schemaVersion": 41,
   "tags": [],
   "templating": {
@@ -1435,9 +1435,11 @@
       },
       {
         "current": {
-          "text": "All",
+          "text": [
+            "FSA-SQL-02"
+          ],
           "value": [
-            "$__all"
+            "FSA-SQL-02"
           ]
         },
         "datasource": {
@@ -1461,9 +1463,7 @@
       },
       {
         "current": {
-          "text": [
-            "All"
-          ],
+          "text": "All",
           "value": [
             "$__all"
           ]
@@ -1490,12 +1490,12 @@
     ]
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "SQL Server and FlashArray",
-  "uid": "3MpPHQhVza",
-  "version": 3
+  "uid": "e591c76b-aeb1-43be-9ce3-398651afd4c6",
+  "version": 1
 }
