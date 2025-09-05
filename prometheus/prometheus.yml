@@ -13,9 +13,9 @@ scrape_configs:
   - job_name: 'purestorage-fa1'
     metrics_path: /metrics/array
     authorization:
-      credentials: API_KEY_HERE
+      credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
     params:
-      endpoint: [flasharray1.pure.fsa.lab]
+      endpoint: [sn1-x90r2-f06-33.puretec.purestorage.com]
     static_configs:
     - targets:
       - pure-fa-om-exporter:9490
@@ -28,9 +28,9 @@ scrape_configs:
   - job_name: 'purestorage-fa1_volumes'
     metrics_path: /metrics/volumes
     authorization:
-      credentials: API_KEY_HERE
+      credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
     params:
-      endpoint: [flasharray1.pure.fsa.lab]
+      endpoint: [sn1-x90r2-f06-33.puretec.purestorage.com]
 
     static_configs:
     - targets:
@@ -44,9 +44,9 @@ scrape_configs:
   - job_name: 'purestorage-fa1_hosts'
     metrics_path: /metrics/hosts
     authorization:
-      credentials: API_KEY_HERE
+      credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
     params:
-      endpoint: [flasharray1.pure.fsa.lab]
+      endpoint: [sn1-x90r2-f06-33.puretec.purestorage.com]
 
     static_configs:
     - targets:
@@ -61,9 +61,9 @@ scrape_configs:
   - job_name: 'purestorage-fa2'
     metrics_path: /metrics/array
     authorization:
-      credentials: API_KEY_HERE
+      credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
     params:
-      endpoint: [flasharray2.pure.fsa.lab]
+      endpoint: [sn1-x90r2-f07-27.puretec.purestorage.com]
 
     static_configs:
     - targets:
@@ -77,9 +77,9 @@ scrape_configs:
   - job_name: 'purestorage-fa2_volumes'
     metrics_path: /metrics/volumes
     authorization:
-      credentials: API_KEY_HERE
+      credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
     params:
-      endpoint: [flasharray2.pure.fsa.lab]
+      endpoint: [sn1-x90r2-f07-27.puretec.purestorage.com]
 
     static_configs:
     - targets:
@@ -95,7 +95,7 @@ scrape_configs:
     authorization:
       credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
     params:
-      endpoint: [flasharray2.pure.fsa.lab]
+      endpoint: [sn1-x90r2-f07-27.puretec.purestorage.com]
 
     static_configs:
     - targets:
@@ -110,9 +110,9 @@ scrape_configs:
   - job_name: 'purestorage-fa3'
     metrics_path: /metrics/array
     authorization:
-      credentials: API_KEY_HERE
+      credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
     params:
-      endpoint: [flasharray3.pure.fsa.lab]
+      endpoint: [sn1-x90r2-f06-27.puretec.purestorage.com]
 
     static_configs:
     - targets:
@@ -126,9 +126,9 @@ scrape_configs:
   - job_name: 'purestorage-fa3_volumes'
     metrics_path: /metrics/volumes
     authorization:
-      credentials: API_KEY_HERE
+      credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
     params:
-      endpoint: [flasharray3.pure.fsa.lab]
+      endpoint: [sn1-x90r2-f06-27.puretec.purestorage.com]
 
     static_configs:
     - targets:
@@ -142,9 +142,9 @@ scrape_configs:
   - job_name: 'purestorage-fa3_hosts'
     metrics_path: /metrics/hosts
     authorization:
-      credentials: API_KEY_HERE
+      credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
     params:
-      endpoint: [flasharray3.pure.fsa.lab]
+      endpoint: [sn1-x90r2-f06-27.puretec.purestorage.com]
 
     static_configs:
     - targets:
@@ -162,9 +162,9 @@ scrape_configs:
   - job_name: 'purestorage-fb'
     metrics_path: /metrics/array
     authorization:
-      credentials: API_KEY_HERE
+      credentials: T-24d61cd3-61e0-4419-9666-6a0c7607c38a
     params:
-      endpoint: [flashblade1.pure.fsa.lab]
+      endpoint: [sn1-s200-c09-33.puretec.purestorage.com]
     static_configs:
     - targets:
       - pure-fb-om-exporter:9491

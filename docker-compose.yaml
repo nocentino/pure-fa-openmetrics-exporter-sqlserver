@@ -21,6 +21,12 @@ services:
     image: "telegraf"
     depends_on:
       - prometheus
+    cap_add:
+      - IPC_LOCK
+    ulimits:
+      memlock:
+        soft: 524288   # 512 KB
+        hard: 524288
     volumes:
       - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
     restart: on-failure
