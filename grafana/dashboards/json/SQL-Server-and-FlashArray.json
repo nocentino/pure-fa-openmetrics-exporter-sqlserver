@@ -1446,9 +1446,11 @@
       },
       {
         "current": {
-          "text": "All",
+          "text": [
+            "aen-sql-25-a"
+          ],
           "value": [
-            "$__all"
+            "aen-sql-25-a"
           ]
         },
         "datasource": {
@@ -1505,6 +1507,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "SQL Server and FlashArray",
-  "uid": "3MpPHQhVza",
-  "version": 3
+  "uid": "e591c76b-aeb1-43be-9ce3-398651afd4c6",
+  "version": 6
 }
