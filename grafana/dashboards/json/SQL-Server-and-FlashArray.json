@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 12,
+  "id": 13,
   "links": [],
   "panels": [
     {
@@ -99,6 +99,7 @@
         "y": 0
       },
       "id": 2,
+      "interval": "$rate_interval",
       "options": {
         "legend": {
           "calcs": [
@@ -205,6 +206,7 @@
         "y": 5
       },
       "id": 18,
+      "interval": "$rate_interval",
       "options": {
         "legend": {
           "calcs": [
@@ -311,7 +313,7 @@
         "y": 10
       },
       "id": 14,
-      "interval": "60s",
+      "interval": "$rate_interval",
       "options": {
         "legend": {
           "calcs": [
@@ -339,7 +341,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "topk(20,\n  avg by (sql_instance, wait_type) (\n    clamp_min(deriv(sqlserver_waitstats_signal_wait_time_ms{\n      sql_instance=~\"$sql_instance\",\n      wait_type!~\"(?i)BROKER_EVENTHANDLER|BROKER_RECEIVE_WAITFOR|BROKER_TASK_STOP|BROKER_TO_FLUSH|BROKER_TRANSMITTER|CHECKPOINT_QUEUE|CHKPT|CLR_AUTO_EVENT|CLR_MANUAL_EVENT|CLR_SEMAPHORE|CXCONSUMER|DBMIRROR_DBM_EVENT|DBMIRROR_EVENTS_QUEUE|DBMIRROR_WORKER_QUEUE|DBMIRRORING_CMD|DIRTY_PAGE_POLL|DISPATCHER_QUEUE_SEMAPHORE|EXECSYNC|FSAGENT|FT_IFTS_SCHEDULER_IDLE_WAIT|FT_IFTSHC_MUTEX|HADR_CLUSAPI_CALL|HADR_FILESTREAM_IOMGR_IOCOMPLETION|HADR_LOGCAPTURE_WAIT|HADR_NOTIFICATION_DEQUEUE|HADR_TIMER_TASK|HADR_WORK_QUEUE|KSOURCE_WAKEUP|LAZYWRITER_SLEEP|LOGMGR_QUEUE|MEMORY_ALLOCATION_EXT|ONDEMAND_TASK_QUEUE|PARALLEL_REDO_DRAIN_WORKER|PARALLEL_REDO_LOG_CACHE|PARALLEL_REDO_TRAN_LIST|PARALLEL_REDO_WORKER_SYNC|PARALLEL_REDO_WORKER_WAIT_WORK|PREEMPTIVE_XE_GETTARGETSTATE|PWAIT_ALL_COMPONENTS_INITIALIZED|PWAIT_DIRECTLOGCONSUMER_GETNEXT|QDS_PERSIST_TASK_MAIN_LOOP_SLEEP|QDS_ASYNC_QUEUE|QDS_CLEANUP_STALE_QUERIES_TASK_MAIN_LOOP_SLEEP|QDS_SHUTDOWN_QUEUE|REDO_THREAD_PENDING_WORK|REQUEST_FOR_DEADLOCK_SEARCH|RESOURCE_QUEUE|SERVER_IDLE_CHECK|SLEEP_BPOOL_FLUSH|SLEEP_DBSTARTUP|SLEEP_DCOMSTARTUP|SLEEP_MASTERDBREADY|SLEEP_MASTERMDREADY|SLEEP_MASTERUPGRADED|SLEEP_MSDBSTARTUP|SLEEP_SYSTEMTASK|SLEEP_TASK|SLEEP_TEMPDBSTARTUP|SNI_HTTP_ACCEPT|SOS_WORK_DISPATCHER|SP_SERVER_DIAGNOSTICS_SLEEP|SQLTRACE_BUFFER_FLUSH|SQLTRACE_INCREMENTAL_FLUSH_SLEEP|SQLTRACE_WAIT_ENTRIES|WAIT_FOR_RESULTS|WAITFOR|WAITFOR_TASKSHUTDOWN|WAIT_XTP_RECOVERY|WAIT_XTP_HOST_WAIT|WAIT_XTP_OFFLINE_CKPT_NEW_LOG|WAIT_XTP_CKPT_CLOSE|XE_DISPATCHER_JOIN|XE_DISPATCHER_WAIT|XE_TIMER_EVENT|PWAIT_EXTENSIBILITY_CLEANUP_TASK\"\n    }[$__rate_interval]), 0)\n  )\n)",
+          "expr": "topk(20,\n  avg by (sql_instance, wait_type) (\n    clamp_min(rate(sqlserver_waitstats_signal_wait_time_ms{\n      sql_instance=~\"$sql_instance\",\n      wait_type!~\"(?i)BROKER_EVENTHANDLER|BROKER_RECEIVE_WAITFOR|BROKER_TASK_STOP|BROKER_TO_FLUSH|BROKER_TRANSMITTER|CHECKPOINT_QUEUE|CHKPT|CLR_AUTO_EVENT|CLR_MANUAL_EVENT|CLR_SEMAPHORE|CXCONSUMER|DBMIRROR_DBM_EVENT|DBMIRROR_EVENTS_QUEUE|DBMIRROR_WORKER_QUEUE|DBMIRRORING_CMD|DIRTY_PAGE_POLL|DISPATCHER_QUEUE_SEMAPHORE|EXECSYNC|FSAGENT|FT_IFTS_SCHEDULER_IDLE_WAIT|FT_IFTSHC_MUTEX|HADR_CLUSAPI_CALL|HADR_FILESTREAM_IOMGR_IOCOMPLETION|HADR_LOGCAPTURE_WAIT|HADR_NOTIFICATION_DEQUEUE|HADR_TIMER_TASK|HADR_WORK_QUEUE|KSOURCE_WAKEUP|LAZYWRITER_SLEEP|LOGMGR_QUEUE|MEMORY_ALLOCATION_EXT|ONDEMAND_TASK_QUEUE|PARALLEL_REDO_DRAIN_WORKER|PARALLEL_REDO_LOG_CACHE|PARALLEL_REDO_TRAN_LIST|PARALLEL_REDO_WORKER_SYNC|PARALLEL_REDO_WORKER_WAIT_WORK|PREEMPTIVE_XE_GETTARGETSTATE|PWAIT_ALL_COMPONENTS_INITIALIZED|PWAIT_DIRECTLOGCONSUMER_GETNEXT|QDS_PERSIST_TASK_MAIN_LOOP_SLEEP|QDS_ASYNC_QUEUE|QDS_CLEANUP_STALE_QUERIES_TASK_MAIN_LOOP_SLEEP|QDS_SHUTDOWN_QUEUE|REDO_THREAD_PENDING_WORK|REQUEST_FOR_DEADLOCK_SEARCH|RESOURCE_QUEUE|SERVER_IDLE_CHECK|SLEEP_BPOOL_FLUSH|SLEEP_DBSTARTUP|SLEEP_DCOMSTARTUP|SLEEP_MASTERDBREADY|SLEEP_MASTERMDREADY|SLEEP_MASTERUPGRADED|SLEEP_MSDBSTARTUP|SLEEP_SYSTEMTASK|SLEEP_TASK|SLEEP_TEMPDBSTARTUP|SNI_HTTP_ACCEPT|SOS_WORK_DISPATCHER|SP_SERVER_DIAGNOSTICS_SLEEP|SQLTRACE_BUFFER_FLUSH|SQLTRACE_INCREMENTAL_FLUSH_SLEEP|SQLTRACE_WAIT_ENTRIES|WAIT_FOR_RESULTS|WAITFOR|WAITFOR_TASKSHUTDOWN|WAIT_XTP_RECOVERY|WAIT_XTP_HOST_WAIT|WAIT_XTP_OFFLINE_CKPT_NEW_LOG|WAIT_XTP_CKPT_CLOSE|XE_DISPATCHER_JOIN|XE_DISPATCHER_WAIT|XE_TIMER_EVENT|PWAIT_EXTENSIBILITY_CLEANUP_TASK\"\n    }[$rate_interval]) , 0)\n  )\n)",
           "hide": false,
           "legendFormat": "{{sql_instance}} - {{wait_type}}",
           "range": true,
@@ -351,7 +353,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "topk(20,\n  avg by (sql_instance, wait_type) (\n    clamp_min(deriv(sqlserver_waitstats_resource_wait_time_ms{\n      sql_instance=~\"$sql_instance\",\n      wait_type!~\"(?i)BROKER_EVENTHANDLER|BROKER_RECEIVE_WAITFOR|BROKER_TASK_STOP|BROKER_TO_FLUSH|BROKER_TRANSMITTER|CHECKPOINT_QUEUE|CHKPT|CLR_AUTO_EVENT|CLR_MANUAL_EVENT|CLR_SEMAPHORE|CXCONSUMER|DBMIRROR_DBM_EVENT|DBMIRROR_EVENTS_QUEUE|DBMIRROR_WORKER_QUEUE|DBMIRRORING_CMD|DIRTY_PAGE_POLL|DISPATCHER_QUEUE_SEMAPHORE|EXECSYNC|FSAGENT|FT_IFTS_SCHEDULER_IDLE_WAIT|FT_IFTSHC_MUTEX|HADR_CLUSAPI_CALL|HADR_FILESTREAM_IOMGR_IOCOMPLETION|HADR_LOGCAPTURE_WAIT|HADR_NOTIFICATION_DEQUEUE|HADR_TIMER_TASK|HADR_WORK_QUEUE|KSOURCE_WAKEUP|LAZYWRITER_SLEEP|LOGMGR_QUEUE|MEMORY_ALLOCATION_EXT|ONDEMAND_TASK_QUEUE|PARALLEL_REDO_DRAIN_WORKER|PARALLEL_REDO_LOG_CACHE|PARALLEL_REDO_TRAN_LIST|PARALLEL_REDO_WORKER_SYNC|PARALLEL_REDO_WORKER_WAIT_WORK|PREEMPTIVE_XE_GETTARGETSTATE|PWAIT_ALL_COMPONENTS_INITIALIZED|PWAIT_DIRECTLOGCONSUMER_GETNEXT|QDS_PERSIST_TASK_MAIN_LOOP_SLEEP|QDS_ASYNC_QUEUE|QDS_CLEANUP_STALE_QUERIES_TASK_MAIN_LOOP_SLEEP|QDS_SHUTDOWN_QUEUE|REDO_THREAD_PENDING_WORK|REQUEST_FOR_DEADLOCK_SEARCH|RESOURCE_QUEUE|SERVER_IDLE_CHECK|SLEEP_BPOOL_FLUSH|SLEEP_DBSTARTUP|SLEEP_DCOMSTARTUP|SLEEP_MASTERDBREADY|SLEEP_MASTERMDREADY|SLEEP_MASTERUPGRADED|SLEEP_MSDBSTARTUP|SLEEP_SYSTEMTASK|SLEEP_TASK|SLEEP_TEMPDBSTARTUP|SNI_HTTP_ACCEPT|SOS_WORK_DISPATCHER|SP_SERVER_DIAGNOSTICS_SLEEP|SQLTRACE_BUFFER_FLUSH|SQLTRACE_INCREMENTAL_FLUSH_SLEEP|SQLTRACE_WAIT_ENTRIES|WAIT_FOR_RESULTS|WAITFOR|WAITFOR_TASKSHUTDOWN|WAIT_XTP_RECOVERY|WAIT_XTP_HOST_WAIT|WAIT_XTP_OFFLINE_CKPT_NEW_LOG|WAIT_XTP_CKPT_CLOSE|XE_DISPATCHER_JOIN|XE_DISPATCHER_WAIT|XE_TIMER_EVENT\"\n    }[$__rate_interval]), 0)\n  )\n)",
+          "expr": "topk(20,\n  avg by (sql_instance, wait_type) (\n    clamp_min(rate(sqlserver_waitstats_resource_wait_time_ms{\n      sql_instance=~\"$sql_instance\",\n      wait_type!~\"(?i)BROKER_EVENTHANDLER|BROKER_RECEIVE_WAITFOR|BROKER_TASK_STOP|BROKER_TO_FLUSH|BROKER_TRANSMITTER|CHECKPOINT_QUEUE|CHKPT|CLR_AUTO_EVENT|CLR_MANUAL_EVENT|CLR_SEMAPHORE|CXCONSUMER|DBMIRROR_DBM_EVENT|DBMIRROR_EVENTS_QUEUE|DBMIRROR_WORKER_QUEUE|DBMIRRORING_CMD|DIRTY_PAGE_POLL|DISPATCHER_QUEUE_SEMAPHORE|EXECSYNC|FSAGENT|FT_IFTS_SCHEDULER_IDLE_WAIT|FT_IFTSHC_MUTEX|HADR_CLUSAPI_CALL|HADR_FILESTREAM_IOMGR_IOCOMPLETION|HADR_LOGCAPTURE_WAIT|HADR_NOTIFICATION_DEQUEUE|HADR_TIMER_TASK|HADR_WORK_QUEUE|KSOURCE_WAKEUP|LAZYWRITER_SLEEP|LOGMGR_QUEUE|MEMORY_ALLOCATION_EXT|ONDEMAND_TASK_QUEUE|PARALLEL_REDO_DRAIN_WORKER|PARALLEL_REDO_LOG_CACHE|PARALLEL_REDO_TRAN_LIST|PARALLEL_REDO_WORKER_SYNC|PARALLEL_REDO_WORKER_WAIT_WORK|PREEMPTIVE_XE_GETTARGETSTATE|PWAIT_ALL_COMPONENTS_INITIALIZED|PWAIT_DIRECTLOGCONSUMER_GETNEXT|QDS_PERSIST_TASK_MAIN_LOOP_SLEEP|QDS_ASYNC_QUEUE|QDS_CLEANUP_STALE_QUERIES_TASK_MAIN_LOOP_SLEEP|QDS_SHUTDOWN_QUEUE|REDO_THREAD_PENDING_WORK|REQUEST_FOR_DEADLOCK_SEARCH|RESOURCE_QUEUE|SERVER_IDLE_CHECK|SLEEP_BPOOL_FLUSH|SLEEP_DBSTARTUP|SLEEP_DCOMSTARTUP|SLEEP_MASTERDBREADY|SLEEP_MASTERMDREADY|SLEEP_MASTERUPGRADED|SLEEP_MSDBSTARTUP|SLEEP_SYSTEMTASK|SLEEP_TASK|SLEEP_TEMPDBSTARTUP|SNI_HTTP_ACCEPT|SOS_WORK_DISPATCHER|SP_SERVER_DIAGNOSTICS_SLEEP|SQLTRACE_BUFFER_FLUSH|SQLTRACE_INCREMENTAL_FLUSH_SLEEP|SQLTRACE_WAIT_ENTRIES|WAIT_FOR_RESULTS|WAITFOR|WAITFOR_TASKSHUTDOWN|WAIT_XTP_RECOVERY|WAIT_XTP_HOST_WAIT|WAIT_XTP_OFFLINE_CKPT_NEW_LOG|WAIT_XTP_CKPT_CLOSE|XE_DISPATCHER_JOIN|XE_DISPATCHER_WAIT|XE_TIMER_EVENT|PWAIT_EXTENSIBILITY_CLEANUP_TASK\"\n    }[$rate_interval]) , 0)\n  )\n)",
           "hide": false,
           "legendFormat": "{{sql_instance}} - {{wait_type}}",
           "range": true,
@@ -432,7 +434,7 @@
         "y": 16
       },
       "id": 4,
-      "interval": "60s",
+      "interval": "$rate_interval",
       "options": {
         "legend": {
           "calcs": [
@@ -461,7 +463,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "clamp_min(\n  sum by (sql_instance, database_name) (\n    deriv(sqlserver_database_io_read_bytes{sql_instance=~\"$sql_instance\"}[$__rate_interval])\n  ),\n  0\n)\n",
+          "expr": "clamp_min(\n  sum by (sql_instance, database_name) (\n    rate(sqlserver_database_io_read_bytes{sql_instance=~\"$sql_instance\"}[$rate_interval])\n  ),\n  0\n)\n",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -540,7 +542,7 @@
         "y": 16
       },
       "id": 5,
-      "interval": "60s",
+      "interval": "$rate_interval",
       "options": {
         "legend": {
           "calcs": [
@@ -569,7 +571,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "clamp_min(\n  sum by (sql_instance, database_name) (\n    deriv(sqlserver_database_io_write_bytes{sql_instance=~\"$sql_instance\"}[$__rate_interval])\n  ),\n  0\n)\n",
+          "expr": "clamp_min(\n  sum by (sql_instance, database_name) (\n    rate(sqlserver_database_io_write_bytes{sql_instance=~\"$sql_instance\"}[$rate_interval])\n  ),\n  0\n)\n",
           "interval": "",
           "legendFormat": "{{sql_instance}} - {{database_name}}",
           "range": true,
@@ -646,7 +648,7 @@
         "y": 24
       },
       "id": 6,
-      "interval": "60s",
+      "interval": "$rate_interval",
       "options": {
         "legend": {
           "calcs": [
@@ -675,7 +677,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "rate(sqlserver_database_io_read_latency_ms{sql_instance=~\"$sql_instance\"}[$__rate_interval])\n/\nclamp_min(\n  rate(sqlserver_database_io_reads{sql_instance=~\"$sql_instance\"}[$__rate_interval]),\n  0.001\n)",
+          "expr": "rate(sqlserver_database_io_read_latency_ms{sql_instance=~\"$sql_instance\"}[$rate_interval])\n/\nclamp_min(\n  rate(sqlserver_database_io_reads{sql_instance=~\"$sql_instance\"}[$rate_interval]),\n  0.001\n)",
           "instant": false,
           "interval": "",
           "legendFormat": "{{sql_instance}} - {{database_name}} - {{physical_filename}} ",
@@ -753,7 +755,7 @@
         "y": 24
       },
       "id": 7,
-      "interval": "60s",
+      "interval": "$rate_interval",
       "options": {
         "legend": {
           "calcs": [
@@ -782,7 +784,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "rate(sqlserver_database_io_write_latency_ms{sql_instance=~\"$sql_instance\"}[$__rate_interval])\n/\nclamp_min(\n  rate(sqlserver_database_io_writes{sql_instance=~\"$sql_instance\"}[$__rate_interval]),\n  0.001\n)",
+          "expr": "rate(sqlserver_database_io_write_latency_ms{sql_instance=~\"$sql_instance\"}[$rate_interval])\n/\nclamp_min(\n  rate(sqlserver_database_io_writes{sql_instance=~\"$sql_instance\"}[$rate_interval]),\n  0.001\n)",
           "interval": "",
           "legendFormat": "{{sql_instance}} - {{database_name}} - {{physical_filename}} ",
           "range": true,
@@ -862,7 +864,7 @@
         "y": 32
       },
       "id": 12,
-      "interval": "30s",
+      "interval": "$rate_interval",
       "options": {
         "legend": {
           "calcs": [
@@ -890,7 +892,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (instance, name) (\n  purefa_volume_performance_latency_usec{\n    instance=~\"${instance:regex}\",\n    name=~\"(?i).*${sql_instance}.*\",\n    dimension=~\"qos_rate_limit_usec_per_read_op|queue_usec_per_read_op|san_usec_per_read_op|service_usec_per_read_op|usec_per_read_op\"\n  }\n)",
+          "expr": "sum by (instance, name) (\n  purefa_volume_performance_latency_usec{\n    instance=~\"$instance\",\n    name=~\"(?i).*${sql_instance}.*\",\n    dimension=~\"qos_rate_limit_usec_per_read_op|queue_usec_per_read_op|san_usec_per_read_op|service_usec_per_read_op|usec_per_read_op\"\n  }\n)",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -966,7 +968,7 @@
         "y": 32
       },
       "id": 13,
-      "interval": "30s",
+      "interval": "$rate_interval",
       "options": {
         "legend": {
           "calcs": [
@@ -994,7 +996,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum by (instance, name) (\n    purefa_volume_performance_latency_usec{\n      instance=~\"${instance:regex}\",\n      name=~\"(?i).*${sql_instance}.*\",\n      dimension=~\"qos_rate_limit_usec_per_write_op|queue_usec_per_write_op|san_usec_per_write_op|service_usec_per_write_op|usec_per_write_op\"\n  }\n)\n",
+          "expr": "sum by (instance, name) (\n    purefa_volume_performance_latency_usec{\n      instance=~\"$instance\",\n      name=~\"(?i).*${sql_instance}.*\",\n      dimension=~\"qos_rate_limit_usec_per_write_op|queue_usec_per_write_op|san_usec_per_write_op|service_usec_per_write_op|usec_per_write_op\"\n  }\n)\n",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -1073,7 +1075,7 @@
         "y": 40
       },
       "id": 16,
-      "interval": "30s",
+      "interval": "$rate_interval",
       "options": {
         "legend": {
           "calcs": [
@@ -1101,7 +1103,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(\n  avg by (instance, name) (\n    avg_over_time(purefa_volume_performance_bandwidth_bytes{\n      instance=~\"${instance:regex}\",\n      name=~\"(?i).*${sql_instance}.*\",\n      dimension=\"read_bytes_per_sec\"\n    }[$__rate_interval])\n  )\n)\n/\nclamp_min(\n  (\n    avg by (instance, name) (\n      avg_over_time(purefa_volume_performance_throughput_iops{\n        instance=~\"${instance:regex}\",\n        name=~\"(?i).*${sql_instance}.*\",\n        dimension=\"reads_per_sec\"\n      }[$__rate_interval])\n    )\n  ),\n  1\n)\n/ 1024",
+          "expr": "(\n  avg by (instance, name) (\n    avg_over_time(purefa_volume_performance_bandwidth_bytes{\n      instance=~\"$instance\",\n      name=~\"(?i).*${sql_instance}.*\",\n      dimension=\"read_bytes_per_sec\"\n    }[$rate_interval])\n  )\n)\n/\nclamp_min(\n  (\n    avg by (instance, name) (\n      avg_over_time(purefa_volume_performance_throughput_iops{\n        instance=~\"$instance\",\n        name=~\"(?i).*${sql_instance}.*\",\n        dimension=\"reads_per_sec\"\n      }[$rate_interval])\n    )\n  ),\n  1\n)\n/ 1024",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -1180,7 +1182,7 @@
         "y": 40
       },
       "id": 17,
-      "interval": "30s",
+      "interval": "$rate_interval",
       "options": {
         "legend": {
           "calcs": [
@@ -1208,7 +1210,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(\n  avg by (instance, name) (\n    avg_over_time(purefa_volume_performance_bandwidth_bytes{\n      instance=~\"${instance:regex}\",\n      name=~\"(?i).*${sql_instance}.*\",\n      dimension=\"write_bytes_per_sec\"\n    }[$__rate_interval])\n  )\n)\n/\nclamp_min(\n  (\n    avg by (instance, name) (\n      avg_over_time(purefa_volume_performance_throughput_iops{\n        instance=~\"${instance:regex}\",\n        name=~\"(?i).*${sql_instance}.*\",\n        dimension=\"writes_per_sec\"\n      }[$__rate_interval])\n    )\n  ),\n  1\n)\n/ 1024",
+          "expr": "(\n  avg by (instance, name) (\n    avg_over_time(purefa_volume_performance_bandwidth_bytes{\n      instance=~\"$instance\",\n      name=~\"(?i).*${sql_instance}.*\",\n      dimension=\"write_bytes_per_sec\"\n    }[$rate_interval])\n  )\n)\n/\nclamp_min(\n  (\n    avg by (instance, name) (\n      avg_over_time(purefa_volume_performance_throughput_iops{\n        instance=~\"$instance\",\n        name=~\"(?i).*${sql_instance}.*\",\n        dimension=\"writes_per_sec\"\n      }[$rate_interval])\n    )\n  ),\n  1\n)\n/ 1024",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -1236,6 +1238,44 @@
         "refresh": 1,
         "regex": "",
         "type": "datasource"
+      },
+      {
+        "current": {
+          "text": "60s",
+          "value": "60s"
+        },
+        "includeAll": false,
+        "label": "Rate Interval",
+        "name": "rate_interval",
+        "options": [
+          {
+            "selected": false,
+            "text": "30s",
+            "value": "30s"
+          },
+          {
+            "selected": true,
+            "text": "60s",
+            "value": "60s"
+          },
+          {
+            "selected": false,
+            "text": "2m",
+            "value": "2m"
+          },
+          {
+            "selected": false,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "10m",
+            "value": "10m"
+          }
+        ],
+        "query": "30s,60s,2m,5m,10m",
+        "type": "custom"
       },
       {
         "current": {
@@ -1292,12 +1332,12 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "SQL Server and FlashArray",
-  "uid": "e591c76b-aeb1-43be-9ce3-398651afd4c9",
-  "version": 10
+  "uid": "e591c76b-aeb1-43be-9ce3-398651afd4c0",
+  "version": 2
 }
