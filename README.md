@@ -131,6 +131,8 @@ The pre-configured dashboard includes:
 - FlashArray volume throughput metrics
 - FlashArray I/O size analysis
 
+![SQL Server and FlashArray Dashboard](https://www.nocentino.com/images/fa-sql-dashboard-2.png)
+
 ## Customization
 
 You can customize this solution by:
