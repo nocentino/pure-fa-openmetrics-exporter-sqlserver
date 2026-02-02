@@ -1,6 +1,6 @@
 global:
-  scrape_interval:     15s
-  scrape_timeout:      10s
+  scrape_interval: '15s'
+  scrape_timeout: '10s'
 scrape_configs:
   - job_name: telegraf
     metrics_path: /metrics
@@ -11,9 +11,14 @@ scrape_configs:
 # Prometheus configuration for Pure Storage FlashArray1
 
   - job_name: 'purestorage-fa1'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/array
     authorization:
       credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f06-33.puretec.purestorage.com']
       labels:
@@ -23,9 +28,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa1_volumes'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/volumes
     authorization:
       credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f06-33.puretec.purestorage.com']
       labels:
@@ -35,9 +45,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa1_hosts'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/hosts
     authorization:
       credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f06-33.puretec.purestorage.com']
       labels:
@@ -48,9 +63,14 @@ scrape_configs:
 
 # For FlashArray2
   - job_name: 'purestorage-fa2'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/array
     authorization:
       credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f07-27.puretec.purestorage.com']
       labels:
@@ -60,9 +80,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa2_volumes'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/volumes
     authorization:
       credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f07-27.puretec.purestorage.com']
       labels:
@@ -72,9 +97,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa2_hosts'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/hosts
     authorization:
       credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f07-27.puretec.purestorage.com']
       labels:
@@ -85,9 +115,14 @@ scrape_configs:
 
 # For FlashArray3
   - job_name: 'purestorage-fa3'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/array
     authorization:
       credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f06-27.puretec.purestorage.com']
       labels:
@@ -97,9 +132,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa3_volumes'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/volumes
     authorization:
       credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f06-27.puretec.purestorage.com']
       labels:
@@ -109,9 +149,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa3_hosts'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/hosts
     authorization:
       credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f06-27.puretec.purestorage.com']
       labels:
@@ -122,9 +167,14 @@ scrape_configs:
 
 # For FlashArray4
   - job_name: 'purestorage-fa4'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/array
     authorization:
       credentials: 492fe998-a261-2ea9-3dd4-619619901ff5
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-c60-e12-16.fsa.lab']
       labels:
@@ -134,9 +184,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa4_volumes'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/volumes
     authorization:
       credentials: 492fe998-a261-2ea9-3dd4-619619901ff5
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-c60-e12-16.fsa.lab']
       labels:
@@ -146,9 +201,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa4_hosts'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/hosts
     authorization:
       credentials: 492fe998-a261-2ea9-3dd4-619619901ff5
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-c60-e12-16.fsa.lab']
       labels:
@@ -159,9 +219,14 @@ scrape_configs:
 
 # For FlashArray5
   - job_name: 'purestorage-fa5'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/array
     authorization:
       credentials: f9bbf155-e76e-0114-c47c-e772cb1e782d
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f05-27.fsa.lab']
       labels:
@@ -171,9 +236,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa5_volumes'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/volumes
     authorization:
       credentials: f9bbf155-e76e-0114-c47c-e772cb1e782d
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f05-27.fsa.lab']
       labels:
@@ -183,9 +253,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa5_hosts'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/hosts
     authorization:
       credentials: f9bbf155-e76e-0114-c47c-e772cb1e782d
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f05-27.fsa.lab']
       labels:
@@ -196,9 +271,14 @@ scrape_configs:
 
 # For FlashArray6
   - job_name: 'purestorage-fa6'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/array
     authorization:
       credentials: 1c1468ff-183c-07b4-98d3-e4798c45ce70
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f05-33.fsa.lab']
       labels:
@@ -208,9 +288,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa6_volumes'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/volumes
     authorization:
       credentials: 1c1468ff-183c-07b4-98d3-e4798c45ce70
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f05-33.fsa.lab']
       labels:
@@ -220,9 +305,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa6_hosts'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/hosts
     authorization:
       credentials: 1c1468ff-183c-07b4-98d3-e4798c45ce70
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['sn1-x90r2-f05-33.fsa.lab']
       labels:
@@ -233,9 +323,14 @@ scrape_configs:
 
 # For FlashArray7
   - job_name: 'purestorage-fa7'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/array
     authorization:
       credentials: 5c8f0a4f-92bd-7cb7-9bcd-a7e6b5f471fe
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['slc6-c60-n3-b35-09.fsa.lab']
       labels:
@@ -245,9 +340,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa7_volumes'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/volumes
     authorization:
       credentials: 5c8f0a4f-92bd-7cb7-9bcd-a7e6b5f471fe
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['slc6-c60-n3-b35-09.fsa.lab']
       labels:
@@ -257,9 +357,14 @@ scrape_configs:
         env: 'Test Lab'
 
   - job_name: 'purestorage-fa7_hosts'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     metrics_path: /metrics/hosts
     authorization:
       credentials: 5c8f0a4f-92bd-7cb7-9bcd-a7e6b5f471fe
+    params:
+      namespace: ['purefa']
     static_configs:
     - targets: ['slc6-c60-n3-b35-09.fsa.lab']
       labels:

@@ -65,7 +65,8 @@ configs:
     file: ./grafana/datasources/datasource.yaml
   dashboards_examples:
     file: ./grafana/dashboards/json/SQL-Server-and-FlashArray.json
-
+  integrated_dashboard:
+    file: ./grafana/dashboards/json/SQL-Server-FlashArray-Integrated.json
 
 volumes:
   prometheus-data:
