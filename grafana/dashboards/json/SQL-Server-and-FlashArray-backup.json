@@ -679,7 +679,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "avg(purefa_volume_performance_bandwidth_bytes{ instance=~\"$instance\", name=~\".+$sql_instance.+\", dimension=\"read_bytes_per_sec\"}) by (instance, name) ",
+          "expr": "avg(purefa_volume_performance_bandwidth_bytes{ instance=~\"^$instance\", name=~\".+$sql_instance.+\", dimension=\"read_bytes_per_sec\"}) by (instance, name) ",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"
@@ -786,7 +786,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "avg(purefa_volume_performance_bandwidth_bytes{ instance=~\"$instance\", name=~\".+$sql_instance.+\", dimension=\"write_bytes_per_sec\"}) by (instance, name) ",
+          "expr": "avg(purefa_volume_performance_bandwidth_bytes{ instance=~\"^$instance\", name=~\".+$sql_instance.+\", dimension=\"write_bytes_per_sec\"}) by (instance, name) ",
           "legendFormat": "{{instance}} - {{name}}",
           "range": true,
           "refId": "A"

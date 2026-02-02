@@ -23,7 +23,7 @@
   },
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "id": 13,
   "links": [],
   "panels": [
@@ -46,7 +46,7 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 10,
+            "fillOpacity": 15,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
@@ -56,11 +56,11 @@
             "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 2,
-            "pointSize": 1,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -103,12 +103,12 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
-          "placement": "right",
+          "placement": "bottom",
           "showLegend": true
         },
         "tooltip": {
@@ -154,7 +154,7 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 10,
+            "fillOpacity": 15,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
@@ -164,11 +164,11 @@
             "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 2,
-            "pointSize": 1,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -210,12 +210,12 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
-          "placement": "right",
+          "placement": "bottom",
           "showLegend": true
         },
         "tooltip": {
@@ -270,12 +270,12 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 4,
+            "lineWidth": 2,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -317,12 +317,12 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
-          "placement": "right",
+          "placement": "bottom",
           "showLegend": true,
           "sortBy": "Last *",
           "sortDesc": true
@@ -391,12 +391,12 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 4,
+            "lineWidth": 2,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -438,8 +438,8 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
@@ -504,11 +504,11 @@
             "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 2,
-            "pointSize": 2,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -546,8 +546,8 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
@@ -613,11 +613,11 @@
               "fill": "solid"
             },
             "lineWidth": 2,
-            "pointSize": 1,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -655,8 +655,8 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
@@ -720,11 +720,11 @@
               "fill": "solid"
             },
             "lineWidth": 2,
-            "pointSize": 1,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -762,8 +762,8 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
@@ -866,8 +866,8 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
@@ -973,9 +973,9 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "max",
-            "lastNotNull"
+            "max"
           ],
           "displayMode": "table",
           "placement": "bottom",
@@ -1040,11 +1040,11 @@
               "fill": "solid"
             },
             "lineWidth": 2,
-            "pointSize": 1,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -1082,8 +1082,8 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
@@ -1144,11 +1144,11 @@
             "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 2,
-            "pointSize": 1,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -1186,8 +1186,8 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
@@ -1251,11 +1251,11 @@
               "fill": "solid"
             },
             "lineWidth": 2,
-            "pointSize": 1,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -1293,8 +1293,8 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
@@ -1358,11 +1358,11 @@
               "fill": "solid"
             },
             "lineWidth": 2,
-            "pointSize": 1,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -1400,8 +1400,8 @@
       "options": {
         "legend": {
           "calcs": [
+            "last",
             "mean",
-            "lastNotNull",
             "max"
           ],
           "displayMode": "table",
@@ -1551,7 +1551,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "SQL Server and FlashArray",
-  "uid": "e591c76b-aeb1-43be-9ce3-398651afd4c0",
+  "title": "SQL Server and FlashArray (Styled)",
+  "uid": "sql-fa-styled",
   "version": 7
 }

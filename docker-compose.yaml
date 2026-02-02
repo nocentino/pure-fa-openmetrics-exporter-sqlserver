@@ -1,22 +1,4 @@
 services:
-  pure-fa-om-exporter:
-    image: quay.io/purestorage/pure-fa-om-exporter:latest
-    command: 
-      - '--port=9490'
-    depends_on: 
-      - prometheus
-    ports:
-      - 9490:9490
-    restart: unless-stopped
-  pure-fb-om-exporter:
-    image: quay.io/purestorage/pure-fb-om-exporter:latest
-    command: 
-      - '--port=9491'
-    depends_on: 
-      - prometheus
-    ports:
-      - 9491:9491
-    restart: unless-stopped
   telegraf:
     image: "telegraf"
     depends_on:
@@ -63,6 +45,26 @@ services:
         target: /etc/grafana/provisioning/datasources/datasource.yaml
       - source: dashboards_examples
         target: /etc/grafana/provisioning/dashboards/json/SQL-Server-and-FlashArray.json
+      - source: integrated_dashboard
+        target: /etc/grafana/provisioning/dashboards/json/SQL-Server-FlashArray-Integrated.json
+      - source: styled_dashboard
+        target: /etc/grafana/provisioning/dashboards/json/SQL-Server-and-FlashArray-styled.json
+      - source: sqlserver_meaningful_dashboard
+        target: /etc/grafana/provisioning/dashboards/json/SQL-Server-Performance-Meaningful.json
+      - source: flasharray_deepdive_dashboard
+        target: /etc/grafana/provisioning/dashboards/json/FlashArray-Performance-DeepDive.json
+    restart: unless-stopped
+  grafana-mcp:
+    image: mcp/grafana:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - GRAFANA_URL=http://grafana:3000
+      - GRAFANA_SERVICE_ACCOUNT_TOKEN=${GRAFANA_SERVICE_ACCOUNT_TOKEN}
+      - GRAFANA_USERNAME=admin
+      - GRAFANA_PASSWORD=admin!
+    depends_on:
+      - grafana
     restart: unless-stopped
 configs:
   dashboard_config:
@@ -71,6 +73,14 @@ configs:
     file: ./grafana/datasources/datasource.yaml
   dashboards_examples:
     file: ./grafana/dashboards/json/SQL-Server-and-FlashArray.json
+  integrated_dashboard:
+    file: ./grafana/dashboards/json/SQL-Server-FlashArray-Integrated.json
+  styled_dashboard:
+    file: ./grafana/dashboards/json/SQL-Server-and-FlashArray-styled.json
+  sqlserver_meaningful_dashboard:
+    file: ./grafana/dashboards/json/SQL-Server-Performance-Meaningful.json
+  flasharray_deepdive_dashboard:
+    file: ./grafana/dashboards/json/FlashArray-Performance-DeepDive.json
 
 volumes:
   prometheus-data:
