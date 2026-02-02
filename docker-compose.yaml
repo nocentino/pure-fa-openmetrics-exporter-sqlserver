@@ -32,7 +32,6 @@ services:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin!
     depends_on: 
-      - pure-fa-om-exporter
       - prometheus
     ports:
       - 3000:3000
@@ -46,13 +45,6 @@ services:
       - source: dashboards_examples
         target: /etc/grafana/provisioning/dashboards/json/SQL-Server-and-FlashArray.json
       - source: integrated_dashboard
-        target: /etc/grafana/provisioning/dashboards/json/SQL-Server-FlashArray-Integrated.json
-      - source: styled_dashboard
-        target: /etc/grafana/provisioning/dashboards/json/SQL-Server-and-FlashArray-styled.json
-      - source: sqlserver_meaningful_dashboard
-        target: /etc/grafana/provisioning/dashboards/json/SQL-Server-Performance-Meaningful.json
-      - source: flasharray_deepdive_dashboard
-        target: /etc/grafana/provisioning/dashboards/json/FlashArray-Performance-DeepDive.json
     restart: unless-stopped
   grafana-mcp:
     image: mcp/grafana:latest
@@ -73,14 +65,7 @@ configs:
     file: ./grafana/datasources/datasource.yaml
   dashboards_examples:
     file: ./grafana/dashboards/json/SQL-Server-and-FlashArray.json
-  integrated_dashboard:
-    file: ./grafana/dashboards/json/SQL-Server-FlashArray-Integrated.json
-  styled_dashboard:
-    file: ./grafana/dashboards/json/SQL-Server-and-FlashArray-styled.json
-  sqlserver_meaningful_dashboard:
-    file: ./grafana/dashboards/json/SQL-Server-Performance-Meaningful.json
-  flasharray_deepdive_dashboard:
-    file: ./grafana/dashboards/json/FlashArray-Performance-DeepDive.json
+
 
 volumes:
   prometheus-data:

@@ -15,8 +15,7 @@ scrape_configs:
     authorization:
       credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
     static_configs:
-    - targets:
-      - sn1-x90r2-f06-33.puretec.purestorage.com
+    - targets: ['sn1-x90r2-f06-33.puretec.purestorage.com']
       labels:
         location: US
         site: TestSite
@@ -28,8 +27,7 @@ scrape_configs:
     authorization:
       credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
     static_configs:
-    - targets:
-      - sn1-x90r2-f06-33.puretec.purestorage.com
+    - targets: ['sn1-x90r2-f06-33.puretec.purestorage.com']
       labels:
         location: US
         site: TestSite
@@ -41,8 +39,7 @@ scrape_configs:
     authorization:
       credentials: bc3ad32a-2ee7-45f2-e207-410f33dcf000
     static_configs:
-    - targets:
-      - sn1-x90r2-f06-33.puretec.purestorage.com
+    - targets: ['sn1-x90r2-f06-33.puretec.purestorage.com']
       labels:
         location: US
         site: TestSite
@@ -55,8 +52,7 @@ scrape_configs:
     authorization:
       credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
     static_configs:
-    - targets:
-      - sn1-x90r2-f07-27.puretec.purestorage.com
+    - targets: ['sn1-x90r2-f07-27.puretec.purestorage.com']
       labels:
         location: US
         site: TestSite
@@ -68,8 +64,7 @@ scrape_configs:
     authorization:
       credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
     static_configs:
-    - targets:
-      - sn1-x90r2-f07-27.puretec.purestorage.com
+    - targets: ['sn1-x90r2-f07-27.puretec.purestorage.com']
       labels:
         location: US
         site: TestSite
@@ -81,8 +76,7 @@ scrape_configs:
     authorization:
       credentials: 0ec6e273-6c80-a458-70e3-9dffd980e77e
     static_configs:
-    - targets:
-      - sn1-x90r2-f07-27.puretec.purestorage.com
+    - targets: ['sn1-x90r2-f07-27.puretec.purestorage.com']
       labels:
         location: US
         site: TestSite
@@ -95,8 +89,7 @@ scrape_configs:
     authorization:
       credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
     static_configs:
-    - targets:
-      - sn1-x90r2-f06-27.puretec.purestorage.com
+    - targets: ['sn1-x90r2-f06-27.puretec.purestorage.com']
       labels:
         location: US
         site: TestSite
@@ -108,8 +101,7 @@ scrape_configs:
     authorization:
       credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
     static_configs:
-    - targets:
-      - sn1-x90r2-f06-27.puretec.purestorage.com
+    - targets: ['sn1-x90r2-f06-27.puretec.purestorage.com']
       labels:
         location: US
         site: TestSite
@@ -121,8 +113,7 @@ scrape_configs:
     authorization:
       credentials: 6a20f30a-2c4b-90eb-ada3-bcae602637a8
     static_configs:
-    - targets:
-      - sn1-x90r2-f06-27.puretec.purestorage.com
+    - targets: ['sn1-x90r2-f06-27.puretec.purestorage.com']
       labels:
         location: US
         site: TestSite
@@ -135,8 +126,7 @@ scrape_configs:
     authorization:
       credentials: 492fe998-a261-2ea9-3dd4-619619901ff5
     static_configs:
-    - targets:
-      - sn1-c60-e12-16.fsa.lab
+    - targets: ['sn1-c60-e12-16.fsa.lab']
       labels:
         location: US
         site: TestSite
@@ -148,8 +138,7 @@ scrape_configs:
     authorization:
       credentials: 492fe998-a261-2ea9-3dd4-619619901ff5
     static_configs:
-    - targets:
-      - sn1-c60-e12-16.fsa.lab
+    - targets: ['sn1-c60-e12-16.fsa.lab']
       labels:
         location: US
         site: TestSite
@@ -161,8 +150,7 @@ scrape_configs:
     authorization:
       credentials: 492fe998-a261-2ea9-3dd4-619619901ff5
     static_configs:
-    - targets:
-      - sn1-c60-e12-16.fsa.lab
+    - targets: ['sn1-c60-e12-16.fsa.lab']
       labels:
         location: US
         site: TestSite
@@ -175,8 +163,7 @@ scrape_configs:
     authorization:
       credentials: f9bbf155-e76e-0114-c47c-e772cb1e782d
     static_configs:
-    - targets:
-      - sn1-x90r2-f05-27.fsa.lab
+    - targets: ['sn1-x90r2-f05-27.fsa.lab']
       labels:
         location: US
         site: TestSite
@@ -188,8 +175,7 @@ scrape_configs:
     authorization:
       credentials: f9bbf155-e76e-0114-c47c-e772cb1e782d
     static_configs:
-    - targets:
-      - sn1-x90r2-f05-27.fsa.lab
+    - targets: ['sn1-x90r2-f05-27.fsa.lab']
       labels:
         location: US
         site: TestSite
@@ -201,8 +187,7 @@ scrape_configs:
     authorization:
       credentials: f9bbf155-e76e-0114-c47c-e772cb1e782d
     static_configs:
-    - targets:
-      - sn1-x90r2-f05-27.fsa.lab
+    - targets: ['sn1-x90r2-f05-27.fsa.lab']
       labels:
         location: US
         site: TestSite
@@ -215,8 +200,7 @@ scrape_configs:
     authorization:
       credentials: 1c1468ff-183c-07b4-98d3-e4798c45ce70
     static_configs:
-    - targets:
-      - sn1-x90r2-f05-33.fsa.lab
+    - targets: ['sn1-x90r2-f05-33.fsa.lab']
       labels:
         location: US
         site: TestSite
@@ -228,8 +212,7 @@ scrape_configs:
     authorization:
       credentials: 1c1468ff-183c-07b4-98d3-e4798c45ce70
     static_configs:
-    - targets:
-      - sn1-x90r2-f05-33.fsa.lab
+    - targets: ['sn1-x90r2-f05-33.fsa.lab']
       labels:
         location: US
         site: TestSite
@@ -241,8 +224,7 @@ scrape_configs:
     authorization:
       credentials: 1c1468ff-183c-07b4-98d3-e4798c45ce70
     static_configs:
-    - targets:
-      - sn1-x90r2-f05-33.fsa.lab
+    - targets: ['sn1-x90r2-f05-33.fsa.lab']
       labels:
         location: US
         site: TestSite
@@ -255,8 +237,7 @@ scrape_configs:
     authorization:
       credentials: 5c8f0a4f-92bd-7cb7-9bcd-a7e6b5f471fe
     static_configs:
-    - targets:
-      - slc6-c60-n3-b35-09.fsa.lab
+    - targets: ['slc6-c60-n3-b35-09.fsa.lab']
       labels:
         location: US
         site: TestSite
@@ -268,8 +249,7 @@ scrape_configs:
     authorization:
       credentials: 5c8f0a4f-92bd-7cb7-9bcd-a7e6b5f471fe
     static_configs:
-    - targets:
-      - slc6-c60-n3-b35-09.fsa.lab
+    - targets: ['slc6-c60-n3-b35-09.fsa.lab']
       labels:
         location: US
         site: TestSite
@@ -281,8 +261,7 @@ scrape_configs:
     authorization:
       credentials: 5c8f0a4f-92bd-7cb7-9bcd-a7e6b5f471fe
     static_configs:
-    - targets:
-      - slc6-c60-n3-b35-09.fsa.lab
+    - targets: ['slc6-c60-n3-b35-09.fsa.lab']
       labels:
         location: US
         site: TestSite
