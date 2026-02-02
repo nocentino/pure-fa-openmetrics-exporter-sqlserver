@@ -6,11 +6,29 @@ This repository contains a complete monitoring solution for SQL Server workloads
 
 This monitoring solution combines:
 - SQL Server metrics collection via Telegraf
-- Pure Storage FlashArray metrics via the Pure FA OpenMetrics Exporter
+- Pure Storage FlashArray metrics via the built-in OpenMetrics exporter (Purity//FA 6.7.x LLR or 6.9.2+ LLR/ER)
 - Prometheus for metrics storage
 - Grafana for visualization with pre-built dashboards
 
 The integrated dashboard allows you to see the complete picture of your SQL Server performance and how it relates to your Pure Storage FlashArray metrics.
+
+## Built-in FlashArray OpenMetrics Exporter
+
+Pure Storage FlashArray includes a built-in OpenMetrics exporter, eliminating the need for a separate dedicated exporter container. This solution leverages this native functionality to collect FlashArray metrics directly from the array's management interface.
+
+**Supported Purity//FA versions:**
+- **Purity//FA 6.7.x** (LLR - GA now, ER pending)
+- **Purity//FA 6.9.2+** (LLR + ER)
+
+**Key benefits:**
+- No additional container to deploy or maintain
+- Metrics are served directly from the FlashArray over HTTPS
+- Simplified architecture with fewer components
+- Uses standard API token authentication
+
+For more details on the built-in OpenMetrics exporter, see the [Pure Storage FlashArray OpenMetrics Exporter documentation](https://support.purestorage.com/bundle/m_purityfa_general_administration/page/FlashArray/PurityFA/PurityFA_General_Administration/topics/concept/c_FlashArray_OpenMetrics_Exporter.html).
+
+> **Note:** Ensure your FlashArray is running a supported Purity//FA version (6.7.x LLR or 6.9.2+ LLR/ER) to use the built-in OpenMetrics exporter.
 
 ## Repository Structure
 
@@ -31,8 +49,7 @@ pure-fa-openmetrics-exporter-sqlserver/
 
 ## Components
 
-- **Pure FA OpenMetrics Exporter**: Collects metrics from Pure Storage FlashArray
-- **Pure FB OpenMetrics Exporter**: Collects metrics from Pure Storage FlashBlade
+- **FlashArray Built-in OpenMetrics Exporter**: Native metrics endpoint available directly on the FlashArray (Purity//FA 6.7.x LLR or 6.9.2+ LLR/ER) - no separate container required
 - **Telegraf**: Collects SQL Server metrics using the SQL Server input plugin
 - **Prometheus**: Time-series database that stores all the collected metrics
 - **Grafana**: Visualization platform with pre-configured dashboards
@@ -40,7 +57,7 @@ pure-fa-openmetrics-exporter-sqlserver/
 ## Prerequisites
 
 - Docker and Docker Compose
-- Access to a Pure Storage FlashArray with API credentials
+- Access to a Pure Storage FlashArray running **Purity//FA 6.7.x LLR or 6.9.2+ LLR/ER** with API credentials
 - SQL Server instance(s) (SQL Server 2016 or newer recommended)
 - A user with appropriate permissions for SQL Server monitoring
 
@@ -126,9 +143,11 @@ You can customize this solution by:
 ### Common Issues
 
 1. **Cannot connect to FlashArray**:
+   - Verify your FlashArray is running a supported Purity//FA version (6.7.x LLR or 6.9.2+ LLR/ER)
    - Verify API token is valid and has not expired
-   - Check network connectivity from Docker host to FlashArray
+   - Check network connectivity from Docker host to FlashArray management interface (HTTPS/443)
    - Ensure the FlashArray address is correct in the configuration
+   - Test the OpenMetrics endpoint directly: `curl -k -H "Authorization: Bearer <api-token>" https://<flasharray>/metrics/array`
 
 2. **SQL Server metrics not showing**:
    - Verify SQL Server credentials in [telegraf/telegraf.conf](telegraf/telegraf.conf)
@@ -144,9 +163,9 @@ You can customize this solution by:
 For more detailed troubleshooting information, check the logs for the specific component:
 
 ```bash
-docker compose logs pure-fa-om-exporter
 docker compose logs telegraf
 docker compose logs prometheus
+docker compose logs grafana
 ```
 
 ## License
